@@ -236,12 +236,11 @@
         <version.jxr.plugin>2.5</version.jxr.plugin>
         <version.karaf.plugin>3.0.1</version.karaf.plugin>
         <version.lesscss.plugin>1.7.0.1.1</version.lesscss.plugin>
-        <!-- PAR-92 : Bundle used to manage file headers -->
-        <version.license-bundle>${version.resource-bundle}</version.license-bundle>
-        <version.license-header>che-eclipse-license-resource-bundle</version.license-header>
+        <version.license.header.artifactid>che-eclipse-license-resource-bundle</version.license.header.artifactid>
+        <version.license.header.groupid>org.eclipse.che.dev</version.license.header.groupid>
+        <version.license.header.version>${version.resource-bundle}</version.license.header.version>
         <version.license.plugin>1.8</version.license.plugin>
         <version.mycila-license.plugin>2.10</version.mycila-license.plugin>
-        <!-- PAR-193 : performances boost workaround -->
         <version.plexus-utils>3.0.18</version.plexus-utils>
         <version.plexus.plugin>1.3.8</version.plexus.plugin>
         <version.plugin.plugin>3.4</version.plugin.plugin>
@@ -735,9 +734,9 @@
                     <!-- Add a dependency since this is where the maven-license-plugin plugin will find the license-header.txt file -->
                     <dependencies>
                         <dependency>
-                            <groupId>org.eclipse.che.dev</groupId>
-                            <artifactId>${version.license-header}</artifactId>
-                            <version>${version.license-bundle}</version>
+                            <groupId>${version.license.header.groupid}</groupId>
+                            <artifactId>${version.license.header.artifactid}</artifactId>
+                            <version>${version.license.header.version}</version>
                         </dependency>
                     </dependencies>
                     <configuration>
