@@ -238,7 +238,7 @@
         <version.lesscss.plugin>1.7.0.1.1</version.lesscss.plugin>
         <!-- PAR-92 : Bundle used to manage file headers -->
         <version.license-bundle>${version.resource-bundle}</version.license-bundle>
-        <version.license-header>codenvy-eclipse-license-resource-bundle</version.license-header>
+        <version.license-header>che-eclipse-license-resource-bundle</version.license-header>
         <version.license.plugin>1.8</version.license.plugin>
         <version.mycila-license.plugin>2.10</version.mycila-license.plugin>
         <!-- PAR-193 : performances boost workaround -->
@@ -252,7 +252,7 @@
         <version.release.plugin>2.5.1</version.release.plugin>
         <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
         <version.replacer.plugin>1.5.3</version.replacer.plugin>
-        <version.resource-bundle>13</version.resource-bundle>
+        <version.resource-bundle>14-SNAPSHOT</version.resource-bundle>
         <version.resources.plugin>2.7</version.resources.plugin>
         <version.selenium.plugin>2.3</version.selenium.plugin>
         <version.shade.plugin>2.3</version.shade.plugin>
@@ -735,7 +735,7 @@
                     <!-- Add a dependency since this is where the maven-license-plugin plugin will find the license-header.txt file -->
                     <dependencies>
                         <dependency>
-                            <groupId>com.codenvy.resources</groupId>
+                            <groupId>org.eclipse.che.dev</groupId>
                             <artifactId>${version.license-header}</artifactId>
                             <version>${version.license-bundle}</version>
                         </dependency>
