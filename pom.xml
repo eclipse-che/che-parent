@@ -251,7 +251,7 @@
         <version.release.plugin>2.5.1</version.release.plugin>
         <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
         <version.replacer.plugin>1.5.3</version.replacer.plugin>
-        <version.resource-bundle>14-SNAPSHOT</version.resource-bundle>
+        <version.resource-bundle>14</version.resource-bundle>
         <version.resources.plugin>2.7</version.resources.plugin>
         <version.selenium.plugin>2.3</version.selenium.plugin>
         <version.shade.plugin>2.3</version.shade.plugin>
