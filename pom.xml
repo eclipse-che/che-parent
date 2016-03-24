@@ -884,6 +884,7 @@
                         <autoVersionSubmodules>true</autoVersionSubmodules>
                         <arguments>-Pcodenvy-release ${arguments}</arguments>
                         <tagNameFormat>@{project.version}</tagNameFormat>
+                        <preparationGoals>clean install</preparationGoals>
                     </configuration>
                 </plugin>
                 <plugin>
