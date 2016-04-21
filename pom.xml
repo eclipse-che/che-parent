@@ -105,6 +105,10 @@
         <!-- **************************************** -->
         <jira.base.url>https://jira.codenvycorp.com</jira.base.url>
         <jira.project.key>PAR</jira.project.key>
+        <license_contributor>${project.organization.name} - initial API and implementation</license_contributor>
+        <license_contributor2 />
+        <license_copyrightOwner>${project.organization.name}</license_copyrightOwner>
+        <license_header>license-header.txt</license_header>
         <license_years>${project.inceptionYear}-${currentYear}</license_years>
         <maven-model.version>3.0.5</maven-model.version>
         <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
@@ -251,7 +255,7 @@
         <version.release.plugin>2.5.1</version.release.plugin>
         <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
         <version.replacer.plugin>1.5.3</version.replacer.plugin>
-        <version.resource-bundle>14</version.resource-bundle>
+        <version.resource-bundle>15-SNAPSHOT</version.resource-bundle>
         <version.resources.plugin>2.7</version.resources.plugin>
         <version.selenium.plugin>2.3</version.selenium.plugin>
         <version.shade.plugin>2.3</version.shade.plugin>
@@ -740,13 +744,15 @@
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <header>license-header.txt</header>
+                        <header>${license_header}</header>
                         <properties>
                             <!-- Values to be substituted in template -->
                             <h_inceptionYear>${project.inceptionYear}</h_inceptionYear>
                             <h_currentYear>${currentYear}</h_currentYear>
-                            <h_copyrightOwner>${project.organization.name}</h_copyrightOwner>
+                            <h_copyrightOwner>${license_copyrightOwner}</h_copyrightOwner>
                             <h_license_years>${license_years}</h_license_years>
+                            <h_contributor>${license_contributor}</h_contributor>
+                            <h_contributor2>${license_contributor2}</h_contributor2>
                         </properties>
                         <failIfMissing>true</failIfMissing>
                         <strictCheck>true</strictCheck>
