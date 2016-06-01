@@ -842,7 +842,6 @@
                             <exclude>**/*.pem</exclude>
                             <exclude>**/*.txt</exclude>
                             <exclude>**/*.log</exclude>
-                            <exclude>**/*.svg</exclude>
                             <exclude>**/README</exclude>
                             <exclude>**/server.xml</exclude>
                             <exclude>**/*.json</exclude>
@@ -857,6 +856,9 @@
                         <headerDefinitions>
                             <headerDefinition>javadoc.xml</headerDefinition>
                         </headerDefinitions>
+                        <mapping>
+                            <svg>XML_STYLE</svg>
+                        </mapping>
                     </configuration>
                 </plugin>
                 <plugin>
