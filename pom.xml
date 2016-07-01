@@ -859,6 +859,7 @@
                         </headerDefinitions>
                         <mapping>
                             <svg>XML_STYLE</svg>
+                            <ts>SLASHSTAR_STYLE</ts>
                         </mapping>
                     </configuration>
                 </plugin>
