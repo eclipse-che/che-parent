@@ -843,6 +843,7 @@
                         <mapping>
                             <svg>XML_STYLE</svg>
                             <ts>SLASHSTAR_STYLE</ts>
+                            <go>DOUBLESLASH_STYLE</go>
                         </mapping>
                     </configuration>
                 </plugin>
