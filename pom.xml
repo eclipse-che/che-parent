@@ -213,8 +213,6 @@
         <version.ejb.plugin>2.5</version.ejb.plugin>
         <version.enforcer.plugin>1.4</version.enforcer.plugin>
         <version.exec.plugin>1.4.0</version.exec.plugin>
-        <version.exobuild.plugin>1.2.2</version.exobuild.plugin>
-        <version.exopc.plugin>1.0.5</version.exopc.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
         <version.findbugs.plugin>3.0.1</version.findbugs.plugin>
         <version.gmaven.plugin>1.5</version.gmaven.plugin>
@@ -524,16 +522,6 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>${version.exec.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.exoplatform.maven.plugins</groupId>
-                    <artifactId>maven-exobuild-plugin</artifactId>
-                    <version>${version.exobuild.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.exoplatform.maven.plugins</groupId>
-                    <artifactId>maven-exopc-plugin</artifactId>
-                    <version>${version.exopc.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
