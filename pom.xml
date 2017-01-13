@@ -213,6 +213,7 @@
         <version.ejb.plugin>2.5</version.ejb.plugin>
         <version.enforcer.plugin>1.4</version.enforcer.plugin>
         <version.exec.plugin>1.4.0</version.exec.plugin>
+        <version.fabric8io.docker.plugin>0.15.16</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
         <version.findbugs.plugin>3.0.1</version.findbugs.plugin>
         <version.gmaven.plugin>1.5</version.gmaven.plugin>
@@ -1173,6 +1174,11 @@
                     <groupId>net.sf.alchim</groupId>
                     <artifactId>yuicompressor-maven-plugin</artifactId>
                     <version>${version.yuicompressor.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${version.fabric8io.docker.plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
