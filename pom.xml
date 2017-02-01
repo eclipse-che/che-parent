@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.che.parent</groupId>
     <artifactId>maven-parent-pom</artifactId>
-    <version>5.2.0</version>
+    <version>5.3.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che parent POM</name>
     <description>Provides default project configuration for Che projects</description>
@@ -38,7 +38,7 @@
     <scm>
         <connection>scm:git:git@github.com:eclipse/che-parent.git</connection>
         <developerConnection>scm:git:git@github.com:eclipse/che-parent.git</developerConnection>
-        <tag>5.2.0</tag>
+        <tag>HEAD</tag>
         <url>https://fisheye.codenvy.com/browse/maven-parent-pom</url>
     </scm>
     <issueManagement>
