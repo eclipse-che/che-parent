@@ -222,6 +222,7 @@
         <version.gwt.plugin>2.8.0</version.gwt.plugin>
         <version.idea.plugin>2.2.1</version.idea.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
+        <version.invoker>2.2</version.invoker>
         <version.invoker.plugin>1.10</version.invoker.plugin>
         <version.jacoco.plugin>0.7.4.201502262128</version.jacoco.plugin>
         <version.jar.plugin>2.6</version.jar.plugin>
@@ -346,6 +347,13 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-archetype-plugin</artifactId>
                     <version>${version.archetype.plugin}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.shared</groupId>
+                            <artifactId>maven-invoker</artifactId>
+                            <version>${version.invoker}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
