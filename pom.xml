@@ -83,7 +83,6 @@
         <gmaven-plugin.providerSelection>2.0</gmaven-plugin.providerSelection>
         <!-- maven-gpg-plugin -->
         <gpg.useagent>true</gpg.useagent>
-        <gwt.compiler.enableClosureCompiler>true</gwt.compiler.enableClosureCompiler>
         <gwt.compiler.extraJvmArgs>-Xss512m -Xmx2048m</gwt.compiler.extraJvmArgs>
         <gwt.compiler.logLevel>INFO</gwt.compiler.logLevel>
         <!-- The system property jacoco.outputDir needs to be override on the command line
@@ -220,7 +219,7 @@
         <version.gmavenplus.plugin>1.2</version.gmavenplus.plugin>
         <version.gpg.plugin>1.6</version.gpg.plugin>
         <!-- Must be kept in sync with maven-depmgt-pom GWT version -->
-        <version.gwt.plugin>2.7.0</version.gwt.plugin>
+        <version.gwt.plugin>2.8.0</version.gwt.plugin>
         <version.idea.plugin>2.2.1</version.idea.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.invoker.plugin>1.10</version.invoker.plugin>
@@ -236,6 +235,7 @@
         <version.jibx.plugin>1.2.5</version.jibx.plugin>
         <version.jmeter.plugin>1.10.0</version.jmeter.plugin>
         <version.jodconverter.plugin>2.2.1</version.jodconverter.plugin>
+        <version.jsr305.plugin>3.0.1</version.jsr305.plugin>
         <version.jstools.plugin>0.7</version.jstools.plugin>
         <version.jxr.plugin>2.5</version.jxr.plugin>
         <version.karaf.plugin>3.0.1</version.karaf.plugin>
@@ -1425,7 +1425,6 @@
                                             <excludes>
                                                 <exclude>commons-logging:commons-logging-api</exclude>
                                                 <exclude>concurrent:concurrent</exclude>
-                                                <exclude>com.google.code.findbugs:*</exclude>
                                                 <exclude>javax.annotation:jsr250-api</exclude>
                                                 <exclude>javax.servlet:servlet-api</exclude>
                                                 <exclude>javax.xml:jaxrpc-api</exclude>
