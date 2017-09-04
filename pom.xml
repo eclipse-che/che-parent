@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.che.parent</groupId>
     <artifactId>maven-parent-pom</artifactId>
-    <version>5.17.0-SNAPSHOT</version>
+    <version>5.18.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che parent POM</name>
     <description>Provides default project configuration for Che projects</description>
@@ -215,6 +215,7 @@
         <version.fabric8io.docker.plugin>0.15.16</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
         <version.findbugs.plugin>3.0.1</version.findbugs.plugin>
+        <version.fmt.plugin>1.8.0</version.fmt.plugin>
         <version.gmaven.plugin>1.5</version.gmaven.plugin>
         <version.gmavenplus.plugin>1.2</version.gmavenplus.plugin>
         <version.gpg.plugin>1.6</version.gpg.plugin>
@@ -834,13 +835,11 @@
                             <exclude>**/tomcat-users.xml</exclude>
                             <exclude>**/rewrite.config</exclude>
                         </excludes>
-                        <headerDefinitions>
-                            <headerDefinition>javadoc.xml</headerDefinition>
-                        </headerDefinitions>
                         <mapping>
                             <svg>XML_STYLE</svg>
                             <ts>SLASHSTAR_STYLE</ts>
                             <go>DOUBLESLASH_STYLE</go>
+                            <java>SLASHSTAR_STYLE</java>
                         </mapping>
                     </configuration>
                 </plugin>
@@ -1065,6 +1064,11 @@
                         <sortDependencies>scope,groupId,artifactId</sortDependencies>
                         <verifyFail>Stop</verifyFail>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.coveo</groupId>
+                    <artifactId>fmt-maven-plugin</artifactId>
+                    <version>${version.fmt.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -1709,6 +1713,18 @@
                                 <phase>validate</phase>
                                 <goals>
                                     <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.coveo</groupId>
+                        <artifactId>fmt-maven-plugin</artifactId>
+                        <version>${version.fmt.plugin}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>check</goal>
                                 </goals>
                             </execution>
                         </executions>
