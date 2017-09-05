@@ -69,7 +69,7 @@
         <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
         <animal-sniffer.signature.version>1.0</animal-sniffer.signature.version>
         <archiveClasses>false</archiveClasses>
-        <com.google.errorprone>2.0.11</com.google.errorprone>
+        <com.google.errorprone>2.0.21</com.google.errorprone>
         <currentYear>2017</currentYear>
         <!--  maven-javadoc-plugin -->
         <detectOfflineLinks>false</detectOfflineLinks>
