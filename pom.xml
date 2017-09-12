@@ -1471,6 +1471,9 @@
                                     <goal>analyze-only</goal>
                                 </goals>
                                 <configuration>
+                                    <ignoredUsedUndeclaredDependencies>
+                                      <ignoredUsedUndeclaredDependency>org.sonatype.sisu:sisu-guice</ignoredUsedUndeclaredDependency>
+                                    </ignoredUsedUndeclaredDependencies>
                                     <failOnWarning>true</failOnWarning>
                                     <ignoreNonCompile>true</ignoreNonCompile>
                                     <outputXML>true</outputXML>
