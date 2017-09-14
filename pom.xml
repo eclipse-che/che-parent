@@ -1706,6 +1706,7 @@
                         <version>${version.fmt.plugin}</version>
                         <executions>
                             <execution>
+                                <phase>validate</phase>
                                 <goals>
                                     <goal>check</goal>
                                 </goals>
