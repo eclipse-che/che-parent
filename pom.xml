@@ -215,7 +215,7 @@
         <version.fabric8io.docker.plugin>0.22.1</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
         <version.findbugs.plugin>3.0.1</version.findbugs.plugin>
-        <version.fmt.plugin>1.8.0</version.fmt.plugin>
+        <version.fmt.plugin>2.0.0</version.fmt.plugin>
         <version.gmaven.plugin>1.5</version.gmaven.plugin>
         <version.gmavenplus.plugin>1.2</version.gmavenplus.plugin>
         <version.gpg.plugin>1.6</version.gpg.plugin>
