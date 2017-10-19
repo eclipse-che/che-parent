@@ -83,8 +83,9 @@
         <gmaven-plugin.providerSelection>2.0</gmaven-plugin.providerSelection>
         <!-- maven-gpg-plugin -->
         <gpg.useagent>true</gpg.useagent>
-        <gwt.compiler.extraJvmArgs>-Xss512m -Xmx2048m</gwt.compiler.extraJvmArgs>
-        <gwt.compiler.logLevel>INFO</gwt.compiler.logLevel>
+        <!-- gwt-maven-plugin -->
+        <gwt.compiler.jvmArgs.Xmx>-Xmx2048m</gwt.compiler.jvmArgs.Xmx>
+        <gwt.compiler.jvmArgs.Xss>-Xss512m</gwt.compiler.jvmArgs.Xss>
         <!-- The system property jacoco.outputDir needs to be override on the command line
          with an absolute path if you want to merge results from all modules.
          Example in a Jenkisn build where ${WORKSPACE} is defined and your project in the root directory of the workspace :
@@ -220,7 +221,7 @@
         <version.gmavenplus.plugin>1.2</version.gmavenplus.plugin>
         <version.gpg.plugin>1.6</version.gpg.plugin>
         <!-- Must be kept in sync with maven-depmgt-pom GWT version -->
-        <version.gwt.plugin>2.8.0</version.gwt.plugin>
+        <version.gwt.plugin>1.0-rc-8</version.gwt.plugin>
         <version.idea.plugin>2.2.1</version.idea.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.invoker>2.2</version.invoker>
@@ -582,7 +583,7 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
+                    <groupId>net.ltgt.gwt.maven</groupId>
                     <artifactId>gwt-maven-plugin</artifactId>
                     <version>${version.gwt.plugin}</version>
                 </plugin>
