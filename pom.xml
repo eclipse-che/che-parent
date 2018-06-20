@@ -1309,6 +1309,34 @@
     </reporting>
     <profiles>
         <profile>
+            <id>extensions</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>!no-extensions</name>
+                </property>
+            </activation>
+            <build>
+                <extensions>
+                    <extension>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-webdav-jackrabbit</artifactId>
+                        <version>${version.wagon}</version>
+                    </extension>
+                    <extension>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-file</artifactId>
+                        <version>${version.wagon}</version>
+                    </extension>
+                    <extension>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-http</artifactId>
+                        <version>${version.wagon}</version>
+                    </extension>
+                </extensions>
+            </build>
+        </profile>
+        <profile>
             <id>sign-jars</id>
             <build>
                 <plugins>
