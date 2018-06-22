@@ -38,6 +38,7 @@
     <modules>
         <module>che-eclipse-license-resource-bundle</module>
         <module>che-codestyle</module>
+        <module>che-dependencies</module>
     </modules>
     <scm>
         <connection>scm:git:git@github.com:eclipse/che-parent.git</connection>
