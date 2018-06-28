@@ -1,10 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2012-2018 Red Hat, Inc.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+
+    Contributors:
+      Red Hat, Inc. - initial API and implementation
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.eclipse.che.parent</groupId>
     <artifactId>maven-parent-pom-root</artifactId>
-    <name>Che parent orchestrator pom</name>
+    <version>6.8.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Che parent orchestrator POM</name>
     <description>Build etry point from which to build parent, deps, codestyle, and license bundle</description>
+    <url>${site.url}</url>
+    <inceptionYear>2012</inceptionYear>
+    <organization>
+        <name>Red Hat, Inc.</name>
+        <url>http://www.redhat.com</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>Eclipse Public License v1.0</name>
+            <url>http://www.eclipse.org/legal/epl-v10.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <modules>
         <module>eclipse-license-resource-bundle</module>
         <module>parent</module>
         <module>codestyle</module>
         <module>dependencies</module>
+    </modules>
+    <scm>
+        <connection>scm:git:git@github.com:eclipse/che-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:eclipse/che-parent.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://fisheye.codenvy.com/browse/maven-parent-pom</url>
+    </scm>
+    <issueManagement>
+        <system>jira</system>
+        <url>${jira.base.url}/browse/${jira.project.key}/</url>
+    </issueManagement>
+    <ciManagement>
+        <system>jenkins</system>
+        <url>${jenkins.base.url}/job/${jenkins.job.name}/</url>
+    </ciManagement>
     <properties>
         <!-- can't validate this file's sources until we've built the first module -->
         <skip-validate-sources>true</skip-validate-sources>
