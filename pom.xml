@@ -53,7 +53,316 @@
         <url>${jenkins.base.url}/job/${jenkins.job.name}/</url>
     </ciManagement>
     <properties>
+        <animal-sniffer.signature.artifactId>java17</animal-sniffer.signature.artifactId>
+        <!-- To configure animal-sniffer to check API compat -->
+        <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
+        <animal-sniffer.signature.version>1.0</animal-sniffer.signature.version>
+        <extra-enforcer-rules.version>1.0-beta-2</extra-enforcer-rules.version>
         <!-- can't validate this file's sources until we've built the first module -->
         <skip-validate-sources>true</skip-validate-sources>
+        <specification.version>${parsedVersion.majorVersion}.0</specification.version>
+        <version.animal-sniffer.enforcer-rule>1.11</version.animal-sniffer.enforcer-rule>
+        <version.apache-source-release-assembly-descriptor>1.0.4</version.apache-source-release-assembly-descriptor>
+        <version.assembly.plugin>3.1.0</version.assembly.plugin>
+        <version.clean.plugin>3.0.0</version.clean.plugin>
+        <version.clirr.plugin>2.6.1</version.clirr.plugin>
+        <version.compiler.plugin>3.7.0</version.compiler.plugin>
+        <version.deploy.plugin>2.8.2</version.deploy.plugin>
+        <version.enforcer.plugin>3.0.0-M1</version.enforcer.plugin>
+        <version.gpg.plugin>1.6</version.gpg.plugin>
+        <version.install.plugin>2.5.2</version.install.plugin>
+        <version.jar.plugin>3.0.2</version.jar.plugin>
+        <version.javadoc.plugin>2.10.2</version.javadoc.plugin>
+        <version.resources.plugin>3.0.2</version.resources.plugin>
+        <version.site.plugin>3.6</version.site.plugin>
+        <version.surefire.plugin>2.20.1</version.surefire.plugin>
+        <version.xml.plugin>1.0</version.xml.plugin>
     </properties>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${version.assembly.plugin}</version>
+                    <configuration>
+                        <!-- Use GNU Tar -->
+                        <tarLongFileMode>gnu</tarLongFileMode>
+                        <!-- Perfs improvements - PAR-191 -->
+                        <useJvmChmod>true</useJvmChmod>
+                        <!-- Allow to activate/deactivate the recompression of zip files -->
+                        <recompressZippedFiles>${maven.assembly.recompressZippedFiles}</recompressZippedFiles>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${version.clean.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${version.compiler.plugin}</version>
+                    <configuration>
+                        <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${version.deploy.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${version.enforcer.plugin}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.ceilfors.maven.plugin</groupId>
+                            <artifactId>enforcer-rules</artifactId>
+                            <version>1.2.0</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>animal-sniffer-enforcer-rule</artifactId>
+                            <version>${version.animal-sniffer.enforcer-rule}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>extra-enforcer-rules</artifactId>
+                            <version>${extra-enforcer-rules.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${version.install.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${version.jar.plugin}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Date>${maven.build.timestamp}</Date>
+                                <Implementation-URL>${project.url}</Implementation-URL>
+                                <SCM-URL>${project.scm.connection}</SCM-URL>
+                                <SCM-Revision>${buildNumber}</SCM-Revision>
+                                <Specification-Title>${product.name}</Specification-Title>
+                                <Specification-Version>${specification.version}</Specification-Version>
+                                <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+                                <Implementation-Title>${project.name}</Implementation-Title>
+                                <Implementation-Version>${project.version}</Implementation-Version>
+                                <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${version.release.plugin}</version>
+                    <configuration>
+                        <!-- maven-release-plugin -->
+                        <goals>deploy</goals>
+                        <useReleaseProfile>false</useReleaseProfile>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <arguments>-Pcodenvy-release ${arguments}</arguments>
+                        <tagNameFormat>@{project.version}</tagNameFormat>
+                        <preparationGoals>clean install</preparationGoals>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${version.resources.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${version.site.plugin}</version>
+                    <configuration>
+                        <skip>true</skip>
+                        <skipDeploy>true</skipDeploy>
+                    </configuration>
+                </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${version.surefire.plugin}</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <!-- To avoid conflicts on CI server - PAR-192 -->
+                        <!-- There is an incompatibility with Byteman - used in social -->
+                        <!-- <java.io.tmpdir>${project.build.directory}</java.io.tmpdir> -->
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${version.surefire.plugin}</version>
+            </plugin>
+            </plugins>
+       </pluginManagement>
+   </build>
+
+    <profiles>
+        <!-- This profile is activated when a project is released. -->
+        <profile>
+            <id>codenvy-release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${version.enforcer.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-plugin-versions</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requirePluginVersions>
+                                            <message>Best practice is to always define plugin versions! Plugins must be released released (no SNAPSHOT) and without using keywords RELEASE or LATEST!</message>
+                                            <banLatest>true</banLatest>
+                                            <banRelease>true</banRelease>
+                                            <banSnapshots>true</banSnapshots>
+                                            <phases>deploy,site</phases>
+                                        </requirePluginVersions>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>check-java-compat</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <checkSignatureRule implementation="org.codehaus.mojo.animal_sniffer.enforcer.CheckSignatureRule">
+                                            <signature>
+                                                <groupId>${animal-sniffer.signature.groupId}</groupId>
+                                                <artifactId>${animal-sniffer.signature.artifactId}</artifactId>
+                                                <version>${animal-sniffer.signature.version}</version>
+                                            </signature>
+                                        </checkSignatureRule>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- 
+            Generates Javadoc
+           -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${version.javadoc.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs-single</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <skip>${maven.javadoc.jar.skip}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!--
+            Checks backward compatibility is maintained
+          -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>clirr-maven-plugin</artifactId>
+                        <version>${version.clirr.plugin}</version>
+                    </plugin>
+                    <!-- Create a source-release artifact that contains the fully buildable
+               project directory source structure. This is the artifact which is
+               the official subject of any release vote. -->
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>source-release-assembly</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+                                    <descriptorRefs>
+                                        <descriptorRef>source-release</descriptorRef>
+                                    </descriptorRefs>
+                                    <tarLongFileMode>gnu</tarLongFileMode>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.apache.resources</groupId>
+                                <artifactId>apache-source-release-assembly-descriptor</artifactId>
+                                <version>${version.apache-source-release-assembly-descriptor}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                    <!-- We want to sign the artifact, the POM, and all attached artifacts -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${version.gpg.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Validate wellformedness of (almost) all XML files -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>xml-maven-plugin</artifactId>
+                        <version>${version.xml.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>validate-xml-files</id>
+                                <goals>
+                                    <goal>validate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <validationSets>
+                                <validationSet>
+                                    <dir>src/main/resources</dir>
+                                    <includes>
+                                        <include>**/*.xml</include>
+                                    </includes>
+                                </validationSet>
+                            </validationSets>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <properties>
+                <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
+                <maven.assembly.recompressZippedFiles>true</maven.assembly.recompressZippedFiles>
+                <maven.war.recompressZippedFiles>true</maven.war.recompressZippedFiles>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
