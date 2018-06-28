@@ -249,7 +249,7 @@
         <version.karaf.plugin>3.0.1</version.karaf.plugin>
         <version.lesscss.plugin>1.7.0.1.1</version.lesscss.plugin>
         <version.license.header.artifactid>che-eclipse-license-resource-bundle</version.license.header.artifactid>
-        <version.license.header.groupid>org.eclipse.che.dev</version.license.header.groupid>
+        <version.license.header.groupid>org.eclipse.che.parent</version.license.header.groupid>
         <version.license.header.version>${version.resource-bundle}</version.license.header.version>
         <version.license.plugin>1.14</version.license.plugin>
         <version.m2e.plugin>1.0.0</version.m2e.plugin>
