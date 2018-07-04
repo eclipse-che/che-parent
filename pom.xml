@@ -35,6 +35,9 @@
     <prerequisites>
         <maven>${maven.min.version}</maven>
     </prerequisites>
+    <modules>
+        <module>dependencies</module>
+    </modules>
     <scm>
         <connection>scm:git:git@github.com:eclipse/che-parent.git</connection>
         <developerConnection>scm:git:git@github.com:eclipse/che-parent.git</developerConnection>
@@ -1466,7 +1469,7 @@
                                 </goals>
                                 <configuration>
                                     <ignoredUsedUndeclaredDependencies>
-                                      <ignoredUsedUndeclaredDependency>org.sonatype.sisu:sisu-guice</ignoredUsedUndeclaredDependency>
+                                        <ignoredUsedUndeclaredDependency>org.sonatype.sisu:sisu-guice</ignoredUsedUndeclaredDependency>
                                     </ignoredUsedUndeclaredDependencies>
                                     <failOnWarning>true</failOnWarning>
                                     <ignoreNonCompile>true</ignoreNonCompile>
