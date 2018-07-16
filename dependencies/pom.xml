@@ -68,7 +68,7 @@
         <joda-time.version>2.3</joda-time.version>
         <log4j.version>1.2.17</log4j.version>
         <logstash.logback.encoder.version>4.11</logstash.logback.encoder.version>
-        <lsp4j.version>0.4.0.M6</lsp4j.version>
+        <lsp4j.version>0.4.0</lsp4j.version>
         <net.java.dev.jna.version>4.1.0</net.java.dev.jna.version>
         <org.antlr.st4.version>4.0.7</org.antlr.st4.version>
         <org.antlr.version>3.5.2</org.antlr.version>
