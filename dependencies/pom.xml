@@ -69,7 +69,7 @@
         <joda-time.version>2.3</joda-time.version>
         <log4j.version>1.2.17</log4j.version>
         <logstash.logback.encoder.version>4.11</logstash.logback.encoder.version>
-        <lsp4j.version>0.3.0</lsp4j.version>
+        <lsp4j.version>0.4.0</lsp4j.version>
         <net.java.dev.jna.version>4.1.0</net.java.dev.jna.version>
         <org.antlr.st4.version>4.0.7</org.antlr.st4.version>
         <org.antlr.version>3.5.2</org.antlr.version>
@@ -86,7 +86,6 @@
         <org.eclipse.equinox.common.version>3.6.200-v20130402-1505</org.eclipse.equinox.common.version>
         <org.eclipse.equinox.preferences.version>3.5.200-v20140224-1527</org.eclipse.equinox.preferences.version>
         <org.eclipse.equinox.registry.version>3.5.400-v20140428-1507</org.eclipse.equinox.registry.version>
-        <org.eclipse.jdt.core.version>3.10.0.v20140604-1726</org.eclipse.jdt.core.version>
         <org.eclipse.jetty.version>9.2.14.v20151106</org.eclipse.jetty.version>
         <org.eclipse.jgit.version>4.9.0.201710071750-r</org.eclipse.jgit.version>
         <org.eclipse.osgi.version>3.10.0.v20140606-1445</org.eclipse.osgi.version>
@@ -996,12 +995,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <dependency>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>org.eclipse.jdt.core</artifactId>
-                <version>${org.eclipse.jdt.core.version}</version>
-            </dependency>
-            <dependency>
+             <dependency>
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>org.eclipse.osgi</artifactId>
                 <version>${org.eclipse.osgi.version}</version>
