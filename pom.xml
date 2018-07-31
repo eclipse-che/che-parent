@@ -59,7 +59,7 @@
             <url>${maven.releases.repo.url}</url>
         </repository>
         <snapshotRepository>
-            <id>repo.codenvy.private</id>
+            <id>ossrh</id>
             <url>${maven.snapshots.repo.url}</url>
         </snapshotRepository>
         <site>
@@ -127,7 +127,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <!-- maven-enforcer-plugin -->
         <maven.min.version>3.3.1</maven.min.version>
-        <maven.private.repo.url>https://maven.codenvycorp.com/content/groups/codenvy-public-group/</maven.private.repo.url>
         <!-- **************************************** -->
         <!-- Sonar Settings                           -->
         <!-- **************************************** -->
@@ -135,8 +134,8 @@
         <!-- **************************************** -->
         <!-- Repositories URLs                        -->
         <!-- **************************************** -->
-        <maven.releases.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-releases/</maven.releases.repo.url>
-        <maven.snapshots.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-snapshots/</maven.snapshots.repo.url>
+        <maven.releases.repo.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.releases.repo.url>
+        <maven.snapshots.repo.url>https://oss.sonatype.org/content/repositories/snapshots/</maven.snapshots.repo.url>
         <maven.war.attachClasses>false</maven.war.attachClasses>
         <maven.war.recompressZippedFiles>false</maven.war.recompressZippedFiles>
         <!-- These properties are automatically computed during the build -->
@@ -151,7 +150,6 @@
         <!-- too slow : http://jira.codehaus.org/browse/MJAVADOC-268 -->
         <quiet>true</quiet>
         <!-- maven-dependency-plugin -->
-        <repoUrl>${maven.private.repo.url}</repoUrl>
         <site.deploy.url>${site.url}</site.deploy.url>
         <!-- **************************************** -->
         <!-- Site URL                                 -->
@@ -264,7 +262,7 @@
         <version.release.plugin>2.5.3</version.release.plugin>
         <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
         <version.replacer.plugin>1.5.3</version.replacer.plugin>
-        <version.resource-bundle>17</version.resource-bundle>
+        <version.resource-bundle>18-SNAPSHOT</version.resource-bundle>
         <version.resources.plugin>3.0.2</version.resources.plugin>
         <version.selenium.plugin>2.3</version.selenium.plugin>
         <version.shade.plugin>2.3</version.shade.plugin>
@@ -282,20 +280,6 @@
         <version.xml.plugin>1.0</version.xml.plugin>
         <version.yuicompressor.plugin>0.7.1</version.yuicompressor.plugin>
     </properties>
-    <repositories>
-        <repository>
-            <id>codenvy-public-repo</id>
-            <name>codenvy public</name>
-            <url>https://maven.codenvycorp.com/content/groups/public/</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>codenvy-plugin-public-repo</id>
-            <name>codenvy plugin public</name>
-            <url>https://maven.codenvycorp.com/content/groups/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
     <build>
         <pluginManagement>
             <!-- All plugins ordered by shortname (antrun, assembly ...) -->
