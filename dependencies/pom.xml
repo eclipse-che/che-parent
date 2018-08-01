@@ -134,8 +134,8 @@
         <junit.version>4.11</junit.version>
         <io.jsonwebtoken.jjwt.version>0.9.0</io.jsonwebtoken.jjwt.version>
         <org.apache.maven.plugin-testing-harness.version>3.3.0</org.apache.maven.plugin-testing-harness.version>
-        <org.mockito.version>2.10.0</org.mockito.version>
-        <org.mockitong.version>0.5</org.mockitong.version>
+        <org.mockito.version>2.21.0</org.mockito.version>
+        <org.mockito.mockito-testng.version>0.0.2</org.mockito.mockito-testng.version>
         <org.testng.version>6.8.21</org.testng.version>
         <com.beust.jcommander.version>1.27</com.beust.jcommander.version>
         <com.tngtech.java>1.9.3</com.tngtech.java>
@@ -1098,15 +1098,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.mockitong</groupId>
-                <artifactId>mockitong</artifactId>
-                <version>${org.mockitong.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>mockito-all</artifactId>
-                        <groupId>org.mockito</groupId>
-                    </exclusion>
-                </exclusions>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-testng</artifactId>
+                <version>${org.mockito.mockito-testng.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mod4j.org.eclipse.core</groupId>
