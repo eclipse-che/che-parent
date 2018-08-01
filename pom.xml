@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.che.parent</groupId>
     <artifactId>maven-parent-pom</artifactId>
-    <version>800-SNAPSHOT</version>
+    <version>799-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che parent POM</name>
     <description>Provides default project configuration for Che projects</description>
@@ -55,7 +55,7 @@
     </ciManagement>
     <distributionManagement>
         <repository>
-            <id>repo.codenvy.private</id>
+            <id>ossrh</id>
             <url>${maven.releases.repo.url}</url>
         </repository>
         <snapshotRepository>
@@ -63,7 +63,7 @@
             <url>${maven.snapshots.repo.url}</url>
         </snapshotRepository>
         <site>
-            <id>repo.codenvy.private</id>
+            <id>ossrh</id>
             <url>${site.deploy.url}</url>
         </site>
     </distributionManagement>
