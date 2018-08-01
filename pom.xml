@@ -33,6 +33,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <developers>
+        <developer>
+            <id>che-dev</id>
+            <name>Eclipse CHE commiters</name>
+            <email>che-dev@eclipse.org</email>
+        </developer>
+    </developers>
     <prerequisites>
         <maven>${maven.min.version}</maven>
     </prerequisites>
