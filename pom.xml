@@ -2,9 +2,9 @@
 <!--
 
     Copyright (c) 2012-2018 Red Hat, Inc.
-    This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v2.0
-    which is available at http://www.eclipse.org/legal/epl-2.0.html
+    This program and the accompanying materials are made
+    available under the terms of the Eclipse Public License 2.0
+    which is available at https://www.eclipse.org/legal/epl-2.0/
 
     SPDX-License-Identifier: EPL-2.0
 
@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.che.parent</groupId>
     <artifactId>maven-parent-pom</artifactId>
-    <version>6.9.0-SNAPSHOT</version>
+    <version>6.10.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che parent POM</name>
     <description>Provides default project configuration for Che projects</description>
@@ -28,8 +28,8 @@
     </organization>
     <licenses>
         <license>
-            <name>Eclipse Public License v2.0</name>
-            <url>http://www.eclipse.org/legal/epl-v20.html</url>
+            <name>Eclipse Public License 2.0</name>
+            <url>https://www.eclipse.org/legal/epl-2.0/</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -269,7 +269,7 @@
         <version.release.plugin>2.5.3</version.release.plugin>
         <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
         <version.replacer.plugin>1.5.3</version.replacer.plugin>
-        <version.resource-bundle>18</version.resource-bundle>
+        <version.resource-bundle>19</version.resource-bundle>
         <version.resources.plugin>3.0.2</version.resources.plugin>
         <version.selenium.plugin>2.3</version.selenium.plugin>
         <version.shade.plugin>2.3</version.shade.plugin>
