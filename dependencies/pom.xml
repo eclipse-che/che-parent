@@ -1101,6 +1101,16 @@
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-testng</artifactId>
                 <version>${org.mockito.mockito-testng.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>mockito-core</artifactId>
+                        <groupId>org.mockito</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>testng</artifactId>
+                        <groupId>org.testng</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.mod4j.org.eclipse.core</groupId>
