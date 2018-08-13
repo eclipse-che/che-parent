@@ -35,7 +35,7 @@
         <aopalliance.version>1.0</aopalliance.version>
         <ch.qos.logback.version>1.2.1</ch.qos.logback.version>
         <com.auth0.jwks-rsa.version>0.3.0</com.auth0.jwks-rsa.version>
-        <com.fasterxml.jackson.core.version>2.7.7</com.fasterxml.jackson.core.version>
+        <com.fasterxml.jackson.core.version>2.9.6</com.fasterxml.jackson.core.version>
         <com.google.api-client.version>1.23.0</com.google.api-client.version>
         <com.google.code.guice.version>4.1.0</com.google.code.guice.version>
         <com.google.guava.version>20.0</com.google.guava.version>
@@ -74,9 +74,9 @@
         <org.antlr.st4.version>4.0.7</org.antlr.st4.version>
         <org.antlr.version>3.5.2</org.antlr.version>
         <org.apache.commons.lang3.version>3.4</org.apache.commons.lang3.version>
-        <org.apache.lucene.version>7.0.1</org.apache.lucene.version>
-        <org.apache.tika.version>1.11</org.apache.tika.version>
-        <org.apache.tomcat.version>8.5.23</org.apache.tomcat.version>
+        <org.apache.lucene.version>7.4.0</org.apache.lucene.version>
+        <org.apache.tika.version>1.18</org.apache.tika.version>
+        <org.apache.tomcat.version>8.5.32</org.apache.tomcat.version>
         <org.bouncycastle.version>1.51</org.bouncycastle.version>
         <org.eclipse.birt.equinox.common.version>3.6.200.v20130402-1505</org.eclipse.birt.equinox.common.version>
         <org.eclipse.core.commands.version>3.6.0</org.eclipse.core.commands.version>
