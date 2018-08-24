@@ -78,20 +78,10 @@
         <org.apache.tika.version>1.11</org.apache.tika.version>
         <org.apache.tomcat.version>8.5.23</org.apache.tomcat.version>
         <org.bouncycastle.version>1.51</org.bouncycastle.version>
-        <org.eclipse.birt.equinox.common.version>3.6.200.v20130402-1505</org.eclipse.birt.equinox.common.version>
-        <org.eclipse.core.commands.version>3.6.0</org.eclipse.core.commands.version>
-        <org.eclipse.core.contenttype.version>3.4.200-v20140207-1251</org.eclipse.core.contenttype.version>
-        <org.eclipse.core.jobs.version>3.6.0.v20140424-0053</org.eclipse.core.jobs.version>
-        <org.eclipse.core.runtime.version>3.10.0.v20140318-2214</org.eclipse.core.runtime.version>
-        <org.eclipse.equinox.common.version>3.6.200-v20130402-1505</org.eclipse.equinox.common.version>
-        <org.eclipse.equinox.preferences.version>3.5.200-v20140224-1527</org.eclipse.equinox.preferences.version>
-        <org.eclipse.equinox.registry.version>3.5.400-v20140428-1507</org.eclipse.equinox.registry.version>
         <org.eclipse.jetty.version>9.2.14.v20151106</org.eclipse.jetty.version>
         <org.eclipse.jgit.version>4.9.0.201710071750-r</org.eclipse.jgit.version>
-        <org.eclipse.osgi.version>3.10.0.v20140606-1445</org.eclipse.osgi.version>
         <org.eclipse.persistence.eclipselink.version>2.7.0</org.eclipse.persistence.eclipselink.version>
         <org.eclipse.persistence.version>2.2.0</org.eclipse.persistence.version>
-        <org.eclipse.search.version>3.10.0.v20150318-0856</org.eclipse.search.version>
         <org.eclipse.text.version>3.5.101</org.eclipse.text.version>
         <org.eclipse.xtext.version>2.10.0</org.eclipse.xtext.version>
         <org.everrest.version>1.13.5</org.everrest.version>
@@ -858,52 +848,6 @@
                 <version>${org.eclipse.aether.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.eclipse.birt.runtime</groupId>
-                <artifactId>org.eclipse.core.jobs</artifactId>
-                <version>${org.eclipse.core.jobs.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.birt.runtime</groupId>
-                <artifactId>org.eclipse.core.runtime</artifactId>
-                <version>${org.eclipse.core.runtime.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.birt.runtime</groupId>
-                <artifactId>org.eclipse.equinox.common</artifactId>
-                <version>${org.eclipse.birt.equinox.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.core</groupId>
-                <artifactId>contenttype</artifactId>
-                <version>${org.eclipse.core.contenttype.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>common</artifactId>
-                        <groupId>org.eclipse.equinox</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.core</groupId>
-                <artifactId>org.eclipse.core.commands</artifactId>
-                <version>${org.eclipse.core.commands.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.equinox</groupId>
-                <artifactId>common</artifactId>
-                <version>${org.eclipse.equinox.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.equinox</groupId>
-                <artifactId>preferences</artifactId>
-                <version>${org.eclipse.equinox.preferences.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.equinox</groupId>
-                <artifactId>registry</artifactId>
-                <version>${org.eclipse.equinox.registry.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-http</artifactId>
                 <version>${org.eclipse.jetty.version}</version>
@@ -975,11 +919,6 @@
                 <version>${org.eclipse.persistence.eclipselink.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.eclipse.search</groupId>
-                <artifactId>org.eclipse.search</artifactId>
-                <version>${org.eclipse.search.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.eclipse.sisu</groupId>
                 <artifactId>org.eclipse.sisu.plexus</artifactId>
                 <version>${org.eclipse.sisu.version}</version>
@@ -994,11 +933,6 @@
                         <groupId>org.eclipse.equinox</groupId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-             <dependency>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>org.eclipse.osgi</artifactId>
-                <version>${org.eclipse.osgi.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.xtext</groupId>
