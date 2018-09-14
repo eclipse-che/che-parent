@@ -94,7 +94,7 @@
         <org.eclipse.persistence.version>2.2.0</org.eclipse.persistence.version>
         <org.eclipse.search.version>3.10.0.v20150318-0856</org.eclipse.search.version>
         <org.eclipse.text.version>3.5.101</org.eclipse.text.version>
-        <org.eclipse.xtext.version>2.10.0</org.eclipse.xtext.version>
+        <org.eclipse.xtext.version>2.14.0</org.eclipse.xtext.version>
         <org.everrest.version>1.13.5</org.everrest.version>
         <org.flyway.version>4.2.0</org.flyway.version>
         <org.glassfish.json.version>1.0.4</org.glassfish.json.version>
@@ -1005,6 +1005,16 @@
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>org.eclipse.osgi</artifactId>
                 <version>${org.eclipse.osgi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.xtend</groupId>
+                <artifactId>org.eclipse.xtend.lib</artifactId>
+                <version>${org.eclipse.xtext.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.xtend</groupId>
+                <artifactId>org.eclipse.xtend.lib.macro</artifactId>
+                <version>${org.eclipse.xtext.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.xtext</groupId>
