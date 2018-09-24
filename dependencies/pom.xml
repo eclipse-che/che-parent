@@ -17,11 +17,11 @@
     <parent>
         <artifactId>maven-parent-pom</artifactId>
         <groupId>org.eclipse.che.parent</groupId>
-        <version>6.10.0-SNAPSHOT</version>
+        <version>6.12.0-SNAPSHOT</version>
     </parent>
     <groupId>org.eclipse.che.depmgt</groupId>
     <artifactId>maven-depmgt-pom</artifactId>
-    <version>6.10.0-SNAPSHOT</version>
+    <version>6.12.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che Dependency Management POM</name>
     <description>Provides version of third parties artifacts to use in Codenvy platform projects</description>
@@ -94,7 +94,7 @@
         <org.eclipse.persistence.version>2.2.0</org.eclipse.persistence.version>
         <org.eclipse.search.version>3.10.0.v20150318-0856</org.eclipse.search.version>
         <org.eclipse.text.version>3.5.101</org.eclipse.text.version>
-        <org.eclipse.xtext.version>2.10.0</org.eclipse.xtext.version>
+        <org.eclipse.xtext.version>2.14.0</org.eclipse.xtext.version>
         <org.everrest.version>1.13.5</org.everrest.version>
         <org.flyway.version>4.2.0</org.flyway.version>
         <org.glassfish.json.version>1.0.4</org.glassfish.json.version>
@@ -1007,6 +1007,16 @@
                 <version>${org.eclipse.osgi.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.eclipse.xtend</groupId>
+                <artifactId>org.eclipse.xtend.lib</artifactId>
+                <version>${org.eclipse.xtext.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.xtend</groupId>
+                <artifactId>org.eclipse.xtend.lib.macro</artifactId>
+                <version>${org.eclipse.xtext.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.eclipse.xtext</groupId>
                 <artifactId>org.eclipse.xtext.xbase.lib</artifactId>
                 <version>${org.eclipse.xtext.version}</version>
@@ -1250,28 +1260,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <repositories>
-        <repository>
-            <id>codenvy-public-repo</id>
-            <name>codenvy public</name>
-            <url>https://maven.codenvycorp.com/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>codenvy-public-snapshots-repo</id>
-            <name>codenvy public snapshots</name>
-            <url>https://maven.codenvycorp.com/content/repositories/codenvy-public-snapshots/</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>codenvy-public-repo</id>
-            <name>codenvy public</name>
-            <url>https://maven.codenvycorp.com/content/groups/public/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>codenvy-public-snapshots-repo</id>
-            <name>codenvy public snapshots</name>
-            <url>https://maven.codenvycorp.com/content/repositories/codenvy-public-snapshots/</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

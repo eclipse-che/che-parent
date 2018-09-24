@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.che.parent</groupId>
     <artifactId>maven-parent-pom</artifactId>
-    <version>6.10.0-SNAPSHOT</version>
+    <version>6.12.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che parent POM</name>
     <description>Provides default project configuration for Che projects</description>
@@ -33,6 +33,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <developers>
+        <developer>
+            <id>che-dev</id>
+            <name>Eclipse CHE commiters</name>
+            <email>che-dev@eclipse.org</email>
+        </developer>
+    </developers>
     <prerequisites>
         <maven>${maven.min.version}</maven>
     </prerequisites>
@@ -55,15 +62,15 @@
     </ciManagement>
     <distributionManagement>
         <repository>
-            <id>repo.codenvy.private</id>
+            <id>ossrh</id>
             <url>${maven.releases.repo.url}</url>
         </repository>
         <snapshotRepository>
-            <id>repo.codenvy.private</id>
+            <id>ossrh</id>
             <url>${maven.snapshots.repo.url}</url>
         </snapshotRepository>
         <site>
-            <id>repo.codenvy.private</id>
+            <id>ossrh</id>
             <url>${site.deploy.url}</url>
         </site>
     </distributionManagement>
@@ -127,7 +134,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <!-- maven-enforcer-plugin -->
         <maven.min.version>3.3.1</maven.min.version>
-        <maven.private.repo.url>https://maven.codenvycorp.com/content/groups/codenvy-public-group/</maven.private.repo.url>
         <!-- **************************************** -->
         <!-- Sonar Settings                           -->
         <!-- **************************************** -->
@@ -135,8 +141,8 @@
         <!-- **************************************** -->
         <!-- Repositories URLs                        -->
         <!-- **************************************** -->
-        <maven.releases.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-releases/</maven.releases.repo.url>
-        <maven.snapshots.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-snapshots/</maven.snapshots.repo.url>
+        <maven.releases.repo.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.releases.repo.url>
+        <maven.snapshots.repo.url>https://oss.sonatype.org/content/repositories/snapshots/</maven.snapshots.repo.url>
         <maven.war.attachClasses>false</maven.war.attachClasses>
         <maven.war.recompressZippedFiles>false</maven.war.recompressZippedFiles>
         <!-- These properties are automatically computed during the build -->
@@ -151,7 +157,6 @@
         <!-- too slow : http://jira.codehaus.org/browse/MJAVADOC-268 -->
         <quiet>true</quiet>
         <!-- maven-dependency-plugin -->
-        <repoUrl>${maven.private.repo.url}</repoUrl>
         <site.deploy.url>${site.url}</site.deploy.url>
         <!-- **************************************** -->
         <!-- Site URL                                 -->
@@ -220,7 +225,7 @@
         <version.fabric8io.docker.plugin>0.22.1</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
         <version.findbugs.plugin>3.0.1</version.findbugs.plugin>
-        <version.fmt.plugin>2.0.0</version.fmt.plugin>
+        <version.fmt.plugin>2.5.1</version.fmt.plugin>
         <version.gmaven.plugin>1.5</version.gmaven.plugin>
         <version.gmavenplus.plugin>1.2</version.gmavenplus.plugin>
         <version.gpg.plugin>1.6</version.gpg.plugin>
@@ -282,20 +287,6 @@
         <version.xml.plugin>1.0</version.xml.plugin>
         <version.yuicompressor.plugin>0.7.1</version.yuicompressor.plugin>
     </properties>
-    <repositories>
-        <repository>
-            <id>codenvy-public-repo</id>
-            <name>codenvy public</name>
-            <url>https://maven.codenvycorp.com/content/groups/public/</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>codenvy-plugin-public-repo</id>
-            <name>codenvy plugin public</name>
-            <url>https://maven.codenvycorp.com/content/groups/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
     <build>
         <pluginManagement>
             <!-- All plugins ordered by shortname (antrun, assembly ...) -->
