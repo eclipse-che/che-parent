@@ -70,6 +70,7 @@
         <log4j.version>1.2.17</log4j.version>
         <logstash.logback.encoder.version>4.11</logstash.logback.encoder.version>
         <lsp4j.version>0.3.0</lsp4j.version>
+        <mysql.version>8.0.12</mysql.version>
         <net.java.dev.jna.version>4.1.0</net.java.dev.jna.version>
         <org.antlr.st4.version>4.0.7</org.antlr.st4.version>
         <org.antlr.version>3.5.2</org.antlr.version>
@@ -637,6 +638,11 @@
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
             <dependency>
                 <groupId>net.java.dev.jna</groupId>
