@@ -57,6 +57,10 @@
         <io.fabric8.kubernetes-client>4.1.0</io.fabric8.kubernetes-client>
         <io.fabric8.kubernetes-model>${io.fabric8.kubernetes-client}</io.fabric8.kubernetes-model>
         <io.fabric8.openshift-client.version>${io.fabric8.kubernetes-client}</io.fabric8.openshift-client.version>
+        <io.opentracing.concurrent.version>0.2.0</io.opentracing.concurrent.version>
+        <io.opentracing.tracerresolver.version>0.1.5</io.opentracing.tracerresolver.version>
+        <io.opentracing.version>0.31.0</io.opentracing.version>
+        <io.opentracing.web-servlet-filter.version>0.2.0</io.opentracing.web-servlet-filter.version>
         <io.swagger.version>1.5.9</io.swagger.version>
         <javax.annotation.version>1.2</javax.annotation.version>
         <javax.inject.version>1</javax.inject.version>
@@ -141,9 +145,6 @@
         <com.tngtech.java>1.9.3</com.tngtech.java>
         <com.dumbster.version>1.7.1</com.dumbster.version>
         <io.jaegertracing.version>0.32.0</io.jaegertracing.version>
-        <io.opentracing.version>0.31.0</io.opentracing.version>
-        <io.opentracing.tracerresolver.version>0.1.5</io.opentracing.tracerresolver.version>
-        <io.opentracing.web-servlet-filter.version>0.2.0</io.opentracing.web-servlet-filter.version>
         <com.googlecode.gwt-test-utils.version>0.47</com.googlecode.gwt-test-utils.version>
         <?SORTPOM RESUME?>
     </properties>
@@ -526,6 +527,11 @@
                 <groupId>io.opentracing</groupId>
                 <artifactId>opentracing-util</artifactId>
                 <version>${io.opentracing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-concurrent</artifactId>
+                <version>${io.opentracing.concurrent.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.opentracing.contrib</groupId>
