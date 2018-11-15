@@ -79,7 +79,7 @@
         <net.java.dev.jna.version>4.1.0</net.java.dev.jna.version>
         <org.antlr.st4.version>4.0.7</org.antlr.st4.version>
         <org.antlr.version>3.5.2</org.antlr.version>
-        <org.apache.commons.lang3.version>3.4</org.apache.commons.lang3.version>
+        <org.apache.commons.lang3.version>3.8.1</org.apache.commons.lang3.version>
         <org.apache.lucene.version>7.4.0</org.apache.lucene.version>
         <org.apache.tika.version>1.19.1</org.apache.tika.version>
         <org.apache.tomcat.version>8.5.35</org.apache.tomcat.version>
