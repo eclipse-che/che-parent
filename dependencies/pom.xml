@@ -58,10 +58,12 @@
         <io.fabric8.kubernetes-model>${io.fabric8.kubernetes-client}</io.fabric8.kubernetes-model>
         <io.fabric8.openshift-client.version>${io.fabric8.kubernetes-client}</io.fabric8.openshift-client.version>
         <io.jaegertracing.version>0.32.0</io.jaegertracing.version>
+        <io.micrometer.version>1.1.0</io.micrometer.version>
         <io.opentracing.jdbc.version>0.0.9</io.opentracing.jdbc.version>
         <io.opentracing.tracerresolver.version>0.1.5</io.opentracing.tracerresolver.version>
         <io.opentracing.version>0.31.0</io.opentracing.version>
         <io.opentracing.web-servlet-filter.version>0.2.2</io.opentracing.web-servlet-filter.version>
+        <io.prometheus.simpleclient.version>0.5.0</io.prometheus.simpleclient.version>
         <io.swagger.version>1.5.9</io.swagger.version>
         <javax.annotation.version>1.2</javax.annotation.version>
         <javax.inject.version>1</javax.inject.version>
@@ -519,6 +521,16 @@
                 <version>${io.jsonwebtoken.jjwt.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-core</artifactId>
+                <version>${io.micrometer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-registry-prometheus</artifactId>
+                <version>${io.micrometer.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.opentracing</groupId>
                 <artifactId>opentracing-api</artifactId>
                 <version>${io.opentracing.version}</version>
@@ -542,6 +554,16 @@
                 <groupId>io.opentracing.contrib</groupId>
                 <artifactId>opentracing-web-servlet-filter</artifactId>
                 <version>${io.opentracing.web-servlet-filter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient</artifactId>
+                <version>${io.prometheus.simpleclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient_httpserver</artifactId>
+                <version>${io.prometheus.simpleclient.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
