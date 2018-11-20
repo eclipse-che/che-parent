@@ -17,11 +17,11 @@
     <parent>
         <artifactId>maven-parent-pom</artifactId>
         <groupId>org.eclipse.che.parent</groupId>
-        <version>6.14.0-SNAPSHOT</version>
+        <version>6.15.0-SNAPSHOT</version>
     </parent>
     <groupId>org.eclipse.che.depmgt</groupId>
     <artifactId>maven-depmgt-pom</artifactId>
-    <version>6.14.0-SNAPSHOT</version>
+    <version>6.15.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che Dependency Management POM</name>
     <description>Provides version of third parties artifacts to use in Codenvy platform projects</description>
@@ -57,10 +57,12 @@
         <io.fabric8.kubernetes-client>4.1.0</io.fabric8.kubernetes-client>
         <io.fabric8.kubernetes-model>${io.fabric8.kubernetes-client}</io.fabric8.kubernetes-model>
         <io.fabric8.openshift-client.version>${io.fabric8.kubernetes-client}</io.fabric8.openshift-client.version>
+        <io.jaegertracing.version>0.32.0</io.jaegertracing.version>
         <io.opentracing.concurrent.version>0.2.0</io.opentracing.concurrent.version>
+        <io.opentracing.jdbc.version>0.0.9</io.opentracing.jdbc.version>
         <io.opentracing.tracerresolver.version>0.1.5</io.opentracing.tracerresolver.version>
         <io.opentracing.version>0.31.0</io.opentracing.version>
-        <io.opentracing.web-servlet-filter.version>0.2.0</io.opentracing.web-servlet-filter.version>
+        <io.opentracing.web-servlet-filter.version>0.2.2</io.opentracing.web-servlet-filter.version>
         <io.swagger.version>1.5.9</io.swagger.version>
         <javax.annotation.version>1.2</javax.annotation.version>
         <javax.inject.version>1</javax.inject.version>
@@ -144,7 +146,6 @@
         <com.beust.jcommander.version>1.27</com.beust.jcommander.version>
         <com.tngtech.java>1.9.3</com.tngtech.java>
         <com.dumbster.version>1.7.1</com.dumbster.version>
-        <io.jaegertracing.version>0.32.0</io.jaegertracing.version>
         <com.googlecode.gwt-test-utils.version>0.47</com.googlecode.gwt-test-utils.version>
         <?SORTPOM RESUME?>
     </properties>
@@ -532,6 +533,11 @@
                 <groupId>io.opentracing.contrib</groupId>
                 <artifactId>opentracing-concurrent</artifactId>
                 <version>${io.opentracing.concurrent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-jdbc</artifactId>
+                <version>${io.opentracing.jdbc.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.opentracing.contrib</groupId>
