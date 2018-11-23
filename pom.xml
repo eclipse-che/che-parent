@@ -121,7 +121,6 @@
         <license_contributor2 />
         <license_copyrightOwner>${project.organization.name}</license_copyrightOwner>
         <license_header>license-header.txt</license_header>
-        <license_years>${project.inceptionYear}-${currentYear}</license_years>
         <maven-model.version>3.0.5</maven-model.version>
         <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
         <maven.assembly.recompressZippedFiles>false</maven.assembly.recompressZippedFiles>
@@ -710,6 +709,11 @@
                             <artifactId>${version.license.header.artifactid}</artifactId>
                             <version>${version.license.header.version}</version>
                         </dependency>
+                        <dependency>
+                            <groupId>com.mycila</groupId>
+                            <artifactId>license-maven-plugin-git</artifactId>
+                            <version>${version.mycila-license.plugin}</version>
+                        </dependency>
                     </dependencies>
                     <configuration>
                         <header>${license_header}</header>
@@ -718,7 +722,6 @@
                             <h_inceptionYear>${project.inceptionYear}</h_inceptionYear>
                             <h_currentYear>${currentYear}</h_currentYear>
                             <h_copyrightOwner>${license_copyrightOwner}</h_copyrightOwner>
-                            <h_license_years>${license_years}</h_license_years>
                             <h_contributor>${license_contributor}</h_contributor>
                             <h_contributor2>${license_contributor2}</h_contributor2>
                         </properties>
