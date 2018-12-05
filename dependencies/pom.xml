@@ -58,10 +58,13 @@
         <io.fabric8.kubernetes-model>${io.fabric8.kubernetes-client}</io.fabric8.kubernetes-model>
         <io.fabric8.openshift-client.version>${io.fabric8.kubernetes-client}</io.fabric8.openshift-client.version>
         <io.jaegertracing.version>0.32.0</io.jaegertracing.version>
+        <io.micrometer.version>1.1.0</io.micrometer.version>
+        <io.opentracing.concurrent.version>0.2.0</io.opentracing.concurrent.version>
         <io.opentracing.jdbc.version>0.0.9</io.opentracing.jdbc.version>
         <io.opentracing.tracerresolver.version>0.1.5</io.opentracing.tracerresolver.version>
         <io.opentracing.version>0.31.0</io.opentracing.version>
         <io.opentracing.web-servlet-filter.version>0.2.2</io.opentracing.web-servlet-filter.version>
+        <io.prometheus.simpleclient.version>0.5.0</io.prometheus.simpleclient.version>
         <io.swagger.version>1.5.9</io.swagger.version>
         <javax.annotation.version>1.2</javax.annotation.version>
         <javax.inject.version>1</javax.inject.version>
@@ -103,11 +106,13 @@
         <org.everrest.version>1.13.5</org.everrest.version>
         <org.flyway.version>4.2.0</org.flyway.version>
         <org.glassfish.json.version>1.0.4</org.glassfish.json.version>
+        <org.hdrhistogram.version>2.1.9</org.hdrhistogram.version>
         <org.javassist.version>3.22.0-GA</org.javassist.version>
         <org.jdom.version>1.1.3</org.jdom.version>
         <org.jgroups.kubernetes.version>0.9.3</org.jgroups.kubernetes.version>
         <org.jgroups.version>3.6.15.Final</org.jgroups.version>
         <org.kohsuke.github-api.version>1.90</org.kohsuke.github-api.version>
+        <org.latencyutils.version>2.0.3</org.latencyutils.version>
         <org.mod4j.org.eclipse.core.expressions.version>3.4.100</org.mod4j.org.eclipse.core.expressions.version>
         <org.postgresql.version>9.4-1201-jdbc41</org.postgresql.version>
         <org.reflections.version>0.9.9</org.reflections.version>
@@ -519,6 +524,16 @@
                 <version>${io.jsonwebtoken.jjwt.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-core</artifactId>
+                <version>${io.micrometer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-registry-prometheus</artifactId>
+                <version>${io.micrometer.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.opentracing</groupId>
                 <artifactId>opentracing-api</artifactId>
                 <version>${io.opentracing.version}</version>
@@ -527,6 +542,11 @@
                 <groupId>io.opentracing</groupId>
                 <artifactId>opentracing-util</artifactId>
                 <version>${io.opentracing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-concurrent</artifactId>
+                <version>${io.opentracing.concurrent.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.opentracing.contrib</groupId>
@@ -542,6 +562,16 @@
                 <groupId>io.opentracing.contrib</groupId>
                 <artifactId>opentracing-web-servlet-filter</artifactId>
                 <version>${io.opentracing.web-servlet-filter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient</artifactId>
+                <version>${io.prometheus.simpleclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient_httpserver</artifactId>
+                <version>${io.prometheus.simpleclient.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
@@ -1123,6 +1153,11 @@
                 <version>${org.hamcrest.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.hdrhistogram</groupId>
+                <artifactId>HdrHistogram</artifactId>
+                <version>${org.hdrhistogram.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.javassist</groupId>
                 <artifactId>javassist</artifactId>
                 <version>${org.javassist.version}</version>
@@ -1146,6 +1181,17 @@
                 <groupId>org.kohsuke</groupId>
                 <artifactId>github-api</artifactId>
                 <version>${org.kohsuke.github-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.latencyutils</groupId>
+                <artifactId>LatencyUtils</artifactId>
+                <version>${org.latencyutils.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>HdrHistogram</artifactId>
+                        <groupId>org.hdrhistogram</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
