@@ -17,11 +17,11 @@
     <parent>
         <artifactId>maven-parent-pom</artifactId>
         <groupId>org.eclipse.che.parent</groupId>
-        <version>6.15.0-SNAPSHOT</version>
+        <version>6.16.0-SNAPSHOT</version>
     </parent>
     <groupId>org.eclipse.che.depmgt</groupId>
     <artifactId>maven-depmgt-pom</artifactId>
-    <version>6.15.0-SNAPSHOT</version>
+    <version>6.16.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che Dependency Management POM</name>
     <description>Provides version of third parties artifacts to use in Codenvy platform projects</description>
@@ -66,6 +66,7 @@
         <io.opentracing.web-servlet-filter.version>0.2.2</io.opentracing.web-servlet-filter.version>
         <io.prometheus.simpleclient.version>0.5.0</io.prometheus.simpleclient.version>
         <io.swagger.version>1.5.9</io.swagger.version>
+        <jackson-coreutils.version>1.9</jackson-coreutils.version>
         <javax.annotation.version>1.2</javax.annotation.version>
         <javax.inject.version>1</javax.inject.version>
         <javax.mail.version>1.4.4</javax.mail.version>
@@ -75,6 +76,8 @@
         <javax.ws.rs.version>2.0</javax.ws.rs.version>
         <jdbc.postgresql-driver.version>${org.postgresql.version}</jdbc.postgresql-driver.version>
         <joda-time.version>2.3</joda-time.version>
+        <json-schema-core.version>1.2.10</json-schema-core.version>
+        <json-schema-validator.version>2.2.10</json-schema-validator.version>
         <log4j.version>1.2.17</log4j.version>
         <logstash.logback.encoder.version>4.11</logstash.logback.encoder.version>
         <lsp4j.version>0.5.0.M1</lsp4j.version>
@@ -220,6 +223,21 @@
                 <groupId>com.fasterxml.jackson.jaxrs</groupId>
                 <artifactId>jackson-jaxrs-json-provider</artifactId>
                 <version>${com.fasterxml.jackson.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.java-json-tools</groupId>
+                <artifactId>jackson-coreutils</artifactId>
+                <version>${jackson-coreutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.java-json-tools</groupId>
+                <artifactId>json-schema-core</artifactId>
+                <version>${json-schema-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.java-json-tools</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>${json-schema-validator.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.api-client</groupId>
