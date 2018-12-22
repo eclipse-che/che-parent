@@ -88,7 +88,7 @@
         <org.apache.commons.lang3.version>3.8.1</org.apache.commons.lang3.version>
         <org.apache.lucene.version>7.4.0</org.apache.lucene.version>
         <org.apache.tika.version>1.19.1</org.apache.tika.version>
-        <org.apache.tomcat.version>8.5.23</org.apache.tomcat.version>
+        <org.apache.tomcat.version>8.5.35</org.apache.tomcat.version>
         <org.bouncycastle.version>1.60</org.bouncycastle.version>
         <org.eclipse.birt.equinox.common.version>3.6.200.v20130402-1505</org.eclipse.birt.equinox.common.version>
         <org.eclipse.core.commands.version>3.6.0</org.eclipse.core.commands.version>
