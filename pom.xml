@@ -278,7 +278,7 @@
         <version.sonar-maven-report.plugin>0.1</version.sonar-maven-report.plugin>
         <version.sortpom.plugin>2.3.0</version.sortpom.plugin>
         <version.source.plugin>3.0.1</version.source.plugin>
-        <version.surefire.plugin>2.20.1</version.surefire.plugin>
+        <version.surefire.plugin>2.22.1</version.surefire.plugin>
         <version.taglist.plugin>2.4</version.taglist.plugin>
         <version.tomcat7.plugin>2.2</version.tomcat7.plugin>
         <version.versions.plugin>2.4</version.versions.plugin>
