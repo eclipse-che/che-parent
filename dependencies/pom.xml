@@ -531,6 +531,11 @@
             </dependency>
             <dependency>
                 <groupId>io.jaegertracing</groupId>
+                <artifactId>jaeger-micrometer</artifactId>
+                <version>${io.jaegertracing.micrometer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jaegertracing</groupId>
                 <artifactId>jaeger-tracerresolver</artifactId>
                 <version>${io.jaegertracing.version}</version>
             </dependency>
@@ -561,6 +566,16 @@
             </dependency>
             <dependency>
                 <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-api-extensions</artifactId>
+                <version>${io.opentracing.api.extensions.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-api-extensions-tracer</artifactId>
+                <version>${io.opentracing.api.extensions.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
                 <artifactId>opentracing-concurrent</artifactId>
                 <version>${io.opentracing.concurrent.version}</version>
             </dependency>
@@ -568,6 +583,16 @@
                 <groupId>io.opentracing.contrib</groupId>
                 <artifactId>opentracing-jdbc</artifactId>
                 <version>${io.opentracing.jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-metrics</artifactId>
+                <version>${io.opentracing.contrib.metrics.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-metrics-micrometer</artifactId>
+                <version>${io.opentracing.contrib.metrics.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.opentracing.contrib</groupId>
