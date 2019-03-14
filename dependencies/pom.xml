@@ -61,7 +61,7 @@
         <io.jaegertracing.micrometer.version>0.33.1</io.jaegertracing.micrometer.version>
         <io.jaegertracing.version>0.32.0</io.jaegertracing.version>
         <io.micrometer.version>1.1.0</io.micrometer.version>
-        <io.opentracing.api.extensions.version>0.1.0</io.opentracing.api.extensions.version>
+        <io.opentracing.api.extensions.version>0.3.0</io.opentracing.api.extensions.version>
         <io.opentracing.concurrent.version>0.2.0</io.opentracing.concurrent.version>
         <io.opentracing.contrib.metrics.version>0.3.0</io.opentracing.contrib.metrics.version>
         <io.opentracing.jdbc.version>0.0.9</io.opentracing.jdbc.version>
@@ -573,6 +573,12 @@
                 <groupId>io.opentracing.contrib</groupId>
                 <artifactId>opentracing-api-extensions-tracer</artifactId>
                 <version>${io.opentracing.api.extensions.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>opentracing-noop</artifactId>
+                        <groupId>io.opentracing</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>io.opentracing.contrib</groupId>
