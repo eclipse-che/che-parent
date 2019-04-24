@@ -82,6 +82,7 @@
         <joda-time.version>2.3</joda-time.version>
         <json-schema-core.version>1.2.10</json-schema-core.version>
         <json-schema-validator.version>2.2.10</json-schema-validator.version>
+        <justify.version>0.14.0</justify.version>
         <log4j.version>1.2.17</log4j.version>
         <logstash.logback.encoder.version>4.11</logstash.logback.encoder.version>
         <lsp4j.version>0.6.0</lsp4j.version>
@@ -1244,6 +1245,11 @@
                         <groupId>org.hdrhistogram</groupId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.leadpony.justify</groupId>
+                <artifactId>justify</artifactId>
+                <version>${justify.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
