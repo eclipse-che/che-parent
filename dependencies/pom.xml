@@ -73,6 +73,7 @@
         <jackson-coreutils.version>1.9</jackson-coreutils.version>
         <javax.annotation.version>1.2</javax.annotation.version>
         <javax.inject.version>1</javax.inject.version>
+        <javax.json.version>1.1.4</javax.json.version>
         <javax.mail.version>1.4.4</javax.mail.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
         <javax.validation.version>1.1.0.Final</javax.validation.version>
@@ -82,6 +83,7 @@
         <joda-time.version>2.3</joda-time.version>
         <json-schema-core.version>1.2.10</json-schema-core.version>
         <json-schema-validator.version>2.2.10</json-schema-validator.version>
+        <justify.version>0.14.0</justify.version>
         <log4j.version>1.2.17</log4j.version>
         <logstash.logback.encoder.version>4.11</logstash.logback.encoder.version>
         <lsp4j.version>0.6.0</lsp4j.version>
@@ -1191,6 +1193,11 @@
             </dependency>
             <dependency>
                 <groupId>org.glassfish</groupId>
+                <artifactId>javax.json</artifactId>
+                <version>${javax.json.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish</groupId>
                 <artifactId>json</artifactId>
                 <version>${org.glassfish.json.version}</version>
             </dependency>
@@ -1244,6 +1251,11 @@
                         <groupId>org.hdrhistogram</groupId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.leadpony.justify</groupId>
+                <artifactId>justify</artifactId>
+                <version>${justify.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
