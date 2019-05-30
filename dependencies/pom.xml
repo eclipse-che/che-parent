@@ -728,11 +728,6 @@
                 <version>${javax.inject.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.json</groupId>
-                <artifactId>javax.json-api</artifactId>
-                <version>${javax.json.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>javax.mail</groupId>
                 <artifactId>mail</artifactId>
                 <version>${javax.mail.version}</version>
