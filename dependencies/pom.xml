@@ -112,7 +112,7 @@
         <org.eclipse.search.version>3.10.0.v20150318-0856</org.eclipse.search.version>
         <org.eclipse.text.version>3.5.101</org.eclipse.text.version>
         <org.eclipse.xtext.version>2.14.0</org.eclipse.xtext.version>
-        <org.everrest.version>1.13.5</org.everrest.version>
+        <org.everrest.version>1.14.3-SNAPSHOT</org.everrest.version>
         <org.flyway.version>4.2.0</org.flyway.version>
         <org.glassfish.json.version>1.0.4</org.glassfish.json.version>
         <org.hdrhistogram.version>2.1.9</org.hdrhistogram.version>
