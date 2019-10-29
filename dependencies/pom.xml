@@ -17,18 +17,18 @@
     <parent>
         <artifactId>maven-parent-pom</artifactId>
         <groupId>org.eclipse.che.parent</groupId>
-        <version>7.3.1-SNAPSHOT</version>
+        <version>7.3.1</version>
     </parent>
     <groupId>org.eclipse.che.depmgt</groupId>
     <artifactId>maven-depmgt-pom</artifactId>
-    <version>7.3.1-SNAPSHOT</version>
+    <version>7.3.1</version>
     <packaging>pom</packaging>
     <name>Che Dependency Management POM</name>
     <description>Provides version of third parties artifacts to use in Codenvy platform projects</description>
     <scm>
         <connection>scm:git:git@github.com:eclipse/che-dependencies.git</connection>
         <developerConnection>scm:git:git@github.com:eclipse/che-dependencies.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>7.3.1</tag>
         <url>https://github.com/eclipse/che-dependencies</url>
     </scm>
     <properties>
