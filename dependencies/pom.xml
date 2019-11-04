@@ -104,7 +104,7 @@
         <org.eclipse.equinox.common.version>3.6.200-v20130402-1505</org.eclipse.equinox.common.version>
         <org.eclipse.equinox.preferences.version>3.5.200-v20140224-1527</org.eclipse.equinox.preferences.version>
         <org.eclipse.equinox.registry.version>3.5.400-v20140428-1507</org.eclipse.equinox.registry.version>
-        <org.eclipse.jetty.version>9.2.14.v20151106</org.eclipse.jetty.version>
+        <org.eclipse.jetty.version>9.4.19.v20190610</org.eclipse.jetty.version>
         <org.eclipse.jgit.version>4.9.0.201710071750-r</org.eclipse.jgit.version>
         <org.eclipse.osgi.version>3.10.0.v20140606-1445</org.eclipse.osgi.version>
         <org.eclipse.persistence.eclipselink.version>2.7.5</org.eclipse.persistence.eclipselink.version>
