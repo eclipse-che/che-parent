@@ -53,6 +53,13 @@ build_and_deploy_artifacts() {
     fi
 }
 
+
+setup_gitconfig() {
+  set +x
+  git config --global github.user che-bot
+  git config --global github.token $CHE_BOT_GITHUB_TOKEN
+}
+
 releaseProject() {
     #test 4
     CUR_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
