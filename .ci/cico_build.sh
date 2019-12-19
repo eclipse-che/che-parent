@@ -11,5 +11,10 @@
 # update machine, get required deps in place
 # this script assumes its being run on CentOS Linux 7/x86_64
 
-./cico_build.sh
+#include common scripts
+. ./.ci/cico_common.sh
 
+load_jenkins_vars
+load_mvn_settings_gpg_key
+install_deps
+build_and_deploy_artifacts
