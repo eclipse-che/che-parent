@@ -47,8 +47,8 @@
         <module>dependencies</module>
     </modules>
     <scm>
-        <connection>scm:git:https://github.com/eclipse/che-parent</connection>
-        <developerConnection>scm:git:https://github.com/eclipse/che-parent</developerConnection>
+        <connection>scm:git:git@github.com:eclipse/che-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:eclipse/che-parent.git</developerConnection>
         <tag>HEAD</tag>
         <url>https://fisheye.codenvy.com/browse/maven-parent-pom</url>
     </scm>

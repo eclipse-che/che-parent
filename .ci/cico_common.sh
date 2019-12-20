@@ -15,6 +15,7 @@ load_jenkins_vars() {
     set +x
     eval "$(./env-toolkit load -f jenkins-env.json \
                               CHE_BOT_GITHUB_TOKEN \
+                              CHE_GITHUB_SSH_KEY \
                               CHE_MAVEN_SETTINGS \
                               CHE_OSS_SONATYPE_GPG_KEY \
                               CHE_OSS_SONATYPE_PASSPHRASE)"
@@ -28,6 +29,9 @@ load_mvn_settings_gpg_key() {
     echo $CHE_MAVEN_SETTINGS | base64 -d > $HOME/.m2/settings.xml 
     #load GPG key for sign artifacts
     echo $CHE_OSS_SONATYPE_GPG_KEY | base64 -d > $HOME/.m2/gpg.key
+    #load SSH key for release process
+    echo $CHE_GITHUB_SSH_KEY | base64 -d > $HOME/.ssh/id_rsa
+    chmod 0400 $HOME/.ssh/id_rsa
     set -x
     gpg --import $HOME/.m2/gpg.key
 }
