@@ -64,6 +64,8 @@ releaseProject() {
     #test 4
     git remote show origin
     git status 
+    git branch
+    git checkout -f release
     CUR_VERSION=$(scl enable rh-maven33 "mvn help:evaluate -Dexpression=project.version -q -DforceStdout")
     echo $CUR_VERSION
     TAG=$(echo $CUR_VERSION | cut -d'-' -f1) #cut SNAPSHOT form the version name
