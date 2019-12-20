@@ -62,9 +62,11 @@ setup_gitconfig() {
 
 releaseProject() {
     #test 4
+    git remote show origin
+    git status 
     CUR_VERSION=$(scl enable rh-maven33 "mvn help:evaluate -Dexpression=project.version -q -DforceStdout")
     echo $CUR_VERSION
     TAG=$(echo $CUR_VERSION | cut -d'-' -f1) #cut SNAPSHOT form the version name
-    echo -e "\x1B[92m############### Release: $TAG\x1B[0m"
+    echo -e "############### Release: $TAG"
     scl enable rh-maven33 "mvn release:prepare release:perform -B -Dresume=false -Dtag=$TAG -DreleaseVersion=$TAG '-Darguments=-DskipTests=true -Dskip-validate-sources -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -Darchetype.test.skip=true -Dversion.animal-sniffer.enforcer-rule=1.16'"
 }
