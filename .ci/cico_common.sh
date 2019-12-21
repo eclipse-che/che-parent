@@ -59,11 +59,17 @@ build_and_deploy_artifacts() {
     fi
 }
 
+gotHttps2ssh(){
+    git remote set-url origin git@github.com:$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')
+}
+
 
 setup_gitconfig() {
   set +x
-  git config --global github.user che-bot
-  git config --global github.token $CHE_BOT_GITHUB_TOKEN
+  #git config --global github.user che-bot
+  #git config --global github.token $CHE_BOT_GITHUB_TOKEN
+  git config --global user.name "Vitalii Parfonov"
+  git config --global user.email vparfono@redhat.com
 }
 
 releaseProject() {
@@ -83,6 +89,6 @@ releaseProject() {
     #build_and_deploy_artifacts
     git tag "${TAG}" || echo "Failed to create tag ${TAG}! Release has been deployed, however" 
     git push --tags ||  echo "Failed to push tags. Please do this manually"
-    exit 1
+    exit 0
     #scl enable rh-maven33 "mvn release:prepare release:perform -B -Dresume=false -Dtag=$TAG -DreleaseVersion=$TAG -DsuppressCommitBeforeTag=true '-Darguments=-DskipTests=true -Dskip-validate-sources -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -Darchetype.test.skip=true -Dversion.animal-sniffer.enforcer-rule=1.16'"
 }
