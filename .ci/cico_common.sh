@@ -76,5 +76,5 @@ releaseProject() {
     echo $CUR_VERSION
     TAG=$(echo $CUR_VERSION | cut -d'-' -f1) #cut SNAPSHOT form the version name
     echo -e "############### Release: $TAG"
-    scl enable rh-maven33 "mvn release:prepare release:perform -B -Dresume=false -Dtag=$TAG -DreleaseVersion=$TAG -DpushChanges=false '-Darguments=-DskipTests=true -Dskip-validate-sources -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -Darchetype.test.skip=true -Dversion.animal-sniffer.enforcer-rule=1.16'"
+    scl enable rh-maven33 "mvn release:prepare release:perform -B -Dresume=false -Dtag=$TAG -DreleaseVersion=$TAG -DsuppressCommitBeforeTag=true '-Darguments=-DskipTests=true -Dskip-validate-sources -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -Darchetype.test.skip=true -Dversion.animal-sniffer.enforcer-rule=1.16'"
 }
