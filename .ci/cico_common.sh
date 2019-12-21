@@ -68,6 +68,7 @@ setup_gitconfig() {
 
 releaseProject() {
     #test 4
+    set -x
     git remote show origin
     git status 
     git branch
@@ -79,9 +80,9 @@ releaseProject() {
 
     scl enable rh-maven33 "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$TAG"
     git commit -asm "Release version ${TAG}" 
-    build_and_deploy_artifacts
-    git tag "${TAG}"
-    git push origin --tags
-
+    #build_and_deploy_artifacts
+    git tag "${TAG}" || echo "Failed to create tag ${TAG}! Release has been deployed, however" 
+    git push --tags ||  echo "Failed to push tags. Please do this manually"
+    exit 1
     #scl enable rh-maven33 "mvn release:prepare release:perform -B -Dresume=false -Dtag=$TAG -DreleaseVersion=$TAG -DsuppressCommitBeforeTag=true '-Darguments=-DskipTests=true -Dskip-validate-sources -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -Darchetype.test.skip=true -Dversion.animal-sniffer.enforcer-rule=1.16'"
 }
