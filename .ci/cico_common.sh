@@ -68,7 +68,6 @@ build_and_deploy_artifacts() {
         echo 'Build Success!'
         echo 'Going to deploy artifacts'
         scl enable rh-maven33 "mvn clean deploy -Pcodenvy-release -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE"
-        exit 0
     else
         echo 'Build Failed!'
         exit 1
