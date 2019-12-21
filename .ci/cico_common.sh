@@ -11,6 +11,27 @@
 # update machine, get required deps in place
 # this script assumes its being run on CentOS Linux 7/x86_64
 
+function die_with() {
+	echo "$*" >&2
+	exit 1
+}
+
+function getCurrentVersion() {
+    curVer=$(scl enable rh-maven33 "mvn help:evaluate -Dexpression=project.version -q -DforceStdout"
+    echo "Current version: $curVer"
+    return $curVer
+}
+
+function getReleaseVersion() {
+    tag=$(echo $1 | cut -d'-' -f1) #cut SNAPSHOT form the version name
+    echo "Release version: $tag"
+    return $tag
+}
+
+function setReleaseVersionInMavenProject(){
+    scl enable rh-maven33 "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$1"
+}
+
 load_jenkins_vars() {
     set +x
     eval "$(./env-toolkit load -f jenkins-env.json \
@@ -22,9 +43,8 @@ load_jenkins_vars() {
 }
 
 load_mvn_settings_gpg_key() {
-    set -x
-    mkdir $HOME/.m2
     set +x
+    mkdir $HOME/.m2
     #prepare settings.xml for maven and sonatype (central maven repository)
     echo $CHE_MAVEN_SETTINGS | base64 -d > $HOME/.m2/settings.xml 
     #load GPG key for sign artifacts
@@ -40,9 +60,9 @@ load_mvn_settings_gpg_key() {
 
 install_deps(){
     set +x
-    yum -y update
-    yum -y install centos-release-scl-rh java-1.8.0-openjdk-devel git 
-    yum -y install rh-maven33
+    yum -q -y update
+    yum -q -y install centos-release-scl-rh java-1.8.0-openjdk-devel git 
+    yum -q -y install rh-maven33
 }
 
 build_and_deploy_artifacts() {
@@ -59,7 +79,7 @@ build_and_deploy_artifacts() {
     fi
 }
 
-gotHttps2ssh(){
+gitHttps2ssh(){
     #git remote set-url origin git@github.com:$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')
     #git version 1.8.3 not support get-url sub-command so hardcode url
     git remote set-url origin git@github.com:eclipse/che-parent
@@ -76,20 +96,13 @@ setup_gitconfig() {
 releaseProject() {
     #test 4
     set -x
-    git remote show origin
-    git status 
-    git branch
     git checkout -f release
-    CUR_VERSION=$(scl enable rh-maven33 "mvn help:evaluate -Dexpression=project.version -q -DforceStdout")
-    echo $CUR_VERSION
-    TAG=$(echo $CUR_VERSION | cut -d'-' -f1) #cut SNAPSHOT form the version name
-    echo -e "############### Release: $TAG"
-
-    scl enable rh-maven33 "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$TAG"
-    git commit -asm "Release version ${TAG}" 
+    curVer=getCurrentVersion
+    tag=getReleaseVersion $curVer
+    setReleaseVersionInMavenProject $tag
+    git commit -asm "Release version ${tagTAG}" 
     #build_and_deploy_artifacts
-    git tag "${TAG}" || echo "Failed to create tag ${TAG}! Release has been deployed, however" 
-    git push --tags ||  echo "Failed to push tags. Please do this manually"
+    git tag "${tag}" || die_with "Failed to create tag ${tag}! Release has been deployed, however" 
+    git push --tags ||  die_with "Failed to push tags. Please do this manually"
     exit 0
-    #scl enable rh-maven33 "mvn release:prepare release:perform -B -Dresume=false -Dtag=$TAG -DreleaseVersion=$TAG -DsuppressCommitBeforeTag=true '-Darguments=-DskipTests=true -Dskip-validate-sources -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -Darchetype.test.skip=true -Dversion.animal-sniffer.enforcer-rule=1.16'"
 }
