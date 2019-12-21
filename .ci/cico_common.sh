@@ -33,6 +33,7 @@ load_mvn_settings_gpg_key() {
     echo ${#CHE_OSS_SONATYPE_GPG_KEY}
     echo $CHE_GITHUB_SSH_KEY | base64 -d > $HOME/.ssh/id_rsa
     chmod 0400 $HOME/.ssh/id_rsa
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
     set -x
     gpg --import $HOME/.m2/gpg.key
 }

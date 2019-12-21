@@ -16,8 +16,8 @@
 
 load_jenkins_vars
 load_mvn_settings_gpg_key
-#install_deps
+install_deps
 setup_gitconfig
-ssh -T git@github.com
+ssh -Tv git@github.com
 #releaseProject
 
