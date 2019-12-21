@@ -30,6 +30,7 @@ load_mvn_settings_gpg_key() {
     #load GPG key for sign artifacts
     echo $CHE_OSS_SONATYPE_GPG_KEY | base64 -d > $HOME/.m2/gpg.key
     #load SSH key for release process
+    echo ${#CHE_OSS_SONATYPE_GPG_KEY}
     echo $CHE_GITHUB_SSH_KEY | base64 -d > $HOME/.ssh/id_rsa
     chmod 0400 $HOME/.ssh/id_rsa
     set -x
