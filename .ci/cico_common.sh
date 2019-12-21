@@ -61,11 +61,11 @@ build_and_deploy_artifacts() {
 
 gotHttps2ssh(){
     git remote set-url origin git@github.com:$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')
+    git version
 }
 
 
 setup_gitconfig() {
-  set +x
   #git config --global github.user che-bot
   #git config --global github.token $CHE_BOT_GITHUB_TOKEN
   git config --global user.name "Vitalii Parfonov"
