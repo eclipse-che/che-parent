@@ -17,15 +17,11 @@ function die_with() {
 }
 
 function getCurrentVersion() {
-    curVer=$(scl enable rh-maven33 "mvn help:evaluate -Dexpression=project.version -q -DforceStdout"
-    echo "Current version: $curVer"
-    return $curVer
+    echo $(scl enable rh-maven33 "mvn help:evaluate -Dexpression=project.version -q -DforceStdout")
 }
 
 function getReleaseVersion() {
-    tag=$(echo $1 | cut -d'-' -f1) #cut SNAPSHOT form the version name
-    echo "Release version: $tag"
-    return $tag
+    echo "$(echo $1 | cut -d'-' -f1)" #cut SNAPSHOT form the version name
 }
 
 function setReleaseVersionInMavenProject(){
@@ -94,15 +90,16 @@ setup_gitconfig() {
 }
 
 releaseProject() {
-    #test 4
     set -x
     git checkout -f release
-    curVer=getCurrentVersion
-    tag=getReleaseVersion $curVer
+    curVer=$(getCurrentVersion)
+    echo ">>>>>>>> $curVer"
+    tag=$(getReleaseVersion $curVer)
+    echo ">>>>>>>>>> $tag"
     setReleaseVersionInMavenProject $tag
-    git commit -asm "Release version ${tagTAG}" 
-    #build_and_deploy_artifacts
-    git tag "${tag}" || die_with "Failed to create tag ${tag}! Release has been deployed, however" 
+    git commit -asm "Release version ${tag}"
+    build_and_deploy_artifacts
+    git tag "${tag}" || die_with "Failed to create tag ${tag}! Release has been deployed, however"
     git push --tags ||  die_with "Failed to push tags. Please do this manually"
     exit 0
 }
