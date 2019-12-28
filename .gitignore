@@ -40,6 +40,12 @@ test-output/
 *.war
 *.ear
 
+# Jenkins CI #
+##############
+env-toolkit
+jenkins-env
+jenkins-env.json
+
 
 
 # Logs and databases #
