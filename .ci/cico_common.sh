@@ -68,6 +68,7 @@ build_and_deploy_artifacts() {
         echo 'Build Success!'
         echo 'Going to deploy artifacts'
         scl enable rh-maven33 "mvn clean deploy -Pcodenvy-release -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE"
+
     else
         echo 'Build Failed!'
         exit 1
@@ -78,6 +79,29 @@ gitHttps2ssh(){
     #git remote set-url origin git@github.com:$(git remote get-url origin | sed 's/https:\/\/github.com\///' | sed 's/git@github.com://')
     #git version 1.8.3 not support get-url sub-command so hardcode url
     git remote set-url origin git@github.com:eclipse/che-parent
+}
+
+
+setup_gitconfig() {
+  #git config --global github.user che-bot
+  #git config --global github.token $CHE_BOT_GITHUB_TOKEN
+  git config --global user.name "Vitalii Parfonov"
+  git config --global user.email vparfono@redhat.com
+}
+
+releaseProject() {
+    set -x
+    git checkout -f release
+    curVer=$(getCurrentVersion)
+    echo ">>>>>>>> $curVer"
+    tag=$(getReleaseVersion $curVer)
+    echo ">>>>>>>>>> $tag"
+    setReleaseVersionInMavenProject $tag
+    git commit -asm "Release version ${tag}"
+    build_and_deploy_artifacts
+    git tag "${tag}" || die_with "Failed to create tag ${tag}! Release has been deployed, however"
+    git push --tags ||  die_with "Failed to push tags. Please do this manually"
+    exit 0
 }
 
 
