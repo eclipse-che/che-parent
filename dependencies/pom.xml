@@ -155,7 +155,7 @@
         <org.apache.maven.plugin-testing-harness.version>3.3.0</org.apache.maven.plugin-testing-harness.version>
         <org.mockito.version>2.21.0</org.mockito.version>
         <org.mockito.mockito-testng.version>0.1.1</org.mockito.mockito-testng.version>
-        <org.testng.version>6.8.21</org.testng.version>
+        <org.testng.version>7.0.0</org.testng.version>
         <com.beust.jcommander.version>1.27</com.beust.jcommander.version>
         <com.tngtech.java>1.9.3</com.tngtech.java>
         <com.dumbster.version>1.7.1</com.dumbster.version>
