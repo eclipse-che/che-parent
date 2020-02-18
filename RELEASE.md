@@ -5,7 +5,7 @@
 * `git push --set-upstream origin {branchname}`
 ##### 2. Create PR for switch master to the next development version :
 * `git branch set_next_version_in_master_{next_version} #e.g 7.8.0-SNAPSHOT`
-* `mvn versions:set -DnewVersion=${next_version} && mvn versions:commit`
+* `mvn versions:set versions:commit -DnewVersion=${next_version}`
 * `git commit`
 * `git push --set-upstream origin set_next_version_in_master_{next_version}`
 * Create Pull Request
@@ -19,4 +19,4 @@
  > **Note:** For bugfix release procedure will be similar except creating new branch on first step and update version in master branch
 
 # Script
-make-release.sh is a script that performs these actions (currently from 1 to 3, only leaving the releasing on Nexus for manual use)
+`make-release.sh` is a script that performs these actions (currently from 1 to 3, only leaving the releasing on Nexus for manual use)
