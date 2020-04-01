@@ -72,7 +72,6 @@ build_and_deploy_artifacts() {
     else
         scl enable rh-maven33 "mvn clean deploy -DskipRemoteStaging=true -U -B -Pcodenvy-release -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -DstagingDescription=\"[$ ${pomVersion} :: deploy to local\"" 
         scl enable rh-maven33 "mvn nexus-staging:deploy-staged -DstagingDescription=\"[ ${pomVersion} :: deploy to stage + close\""
-        #scl enable rh-maven33 "mvn nexus-staging:release -Pcodenvy-release -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -DstagingDescription=\"[ ${pomVersion} :: release\""
     fi
 
     else
