@@ -67,7 +67,7 @@ build_and_deploy_artifacts() {
     if [ $? -eq 0 ]; then
         echo 'Build Success!'
         echo 'Going to deploy artifacts'
-    if [[ $(getCurrentVersion) == *"-SNAPSHOT" ]]; then 
+    if [[ $(getCurrentVersion) == "*-SNAPSHOT" ]]; then 
         scl enable rh-maven33 "mvn clean deploy -Pcodenvy-release -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE"
     else
         scl enable rh-maven33 "mvn clean deploy -DskipRemoteStaging=true -U -B -Pcodenvy-release -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE -DstagingDescription=\"[$ ${pomVersion} :: deploy to local\"" 
