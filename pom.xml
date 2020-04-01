@@ -259,6 +259,7 @@
         <version.license.plugin>1.14</version.license.plugin>
         <version.m2e.plugin>1.0.0</version.m2e.plugin>
         <version.mycila-license.plugin>3.0</version.mycila-license.plugin>
+        <version.nexus.staging.plugin>1.6.7</version.nexus.staging.plugin>
         <version.plexus-utils>3.0.18</version.plexus-utils>
         <version.plexus.component.metadata.plugin>1.7.1</version.plexus.component.metadata.plugin>
         <version.plexus.plugin>1.3.8</version.plexus.plugin>
@@ -304,6 +305,18 @@
 					    <serverId>ossrh</serverId>
 				</configuration>
 			</plugin>
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>${version.nexus.staging.plugin}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <!-- The Base URL of Nexus instance where we want to stage -->
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <!-- The server "id" element from settings to use authentication from -->
+                        <serverId>ossrh</serverId>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.codehaus.plexus</groupId>
                     <artifactId>plexus-component-metadata</artifactId>
