@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.che.parent</groupId>
     <artifactId>maven-parent-pom</artifactId>
-    <version>7.11.0-SNAPSHOT</version>
+    <version>0.test</version>
     <packaging>pom</packaging>
     <name>Che parent POM</name>
     <description>Provides default project configuration for Che projects</description>
@@ -297,13 +297,6 @@
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
                     <version>${version.nexus.staging.plugin}</version>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <!-- The Base URL of Nexus instance where we want to stage -->
-                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                        <!-- The server "id" element from settings to use authentication from -->
-                        <serverId>ossrh</serverId>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.plexus</groupId>
@@ -1517,6 +1510,36 @@
             <id>codenvy-release</id>
             <build>
                 <plugins>
+                    <!-- disable default deploy plugin-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>${version.deploy.plugin}</version>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                    <!-- enable Nexus Staging plugin for deploy process-->
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <executions>
+                            <execution>
+                                <id>default-deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <!-- The Base URL of Nexus instance where we want to stage -->
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <!-- The server "id" element from settings to use authentication from -->
+                            <serverId>ossrh</serverId>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-enforcer-plugin</artifactId>
