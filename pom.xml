@@ -196,7 +196,7 @@
         <!-- *************** -->
         <!-- Others versions -->
         <!-- *************** -->
-        <version.animal-sniffer.enforcer-rule>1.11</version.animal-sniffer.enforcer-rule>
+        <version.animal-sniffer.enforcer-rule>1.18</version.animal-sniffer.enforcer-rule>
         <version.antrun.plugin>1.8</version.antrun.plugin>
         <!-- PAR-155 : Produce project sources package distribution -->
         <version.apache-source-release-assembly-descriptor>1.0.4</version.apache-source-release-assembly-descriptor>
