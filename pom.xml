@@ -2115,5 +2115,16 @@
                 </plugins>
             </build>
         </profile>
+        <!-- use this profile to build (or deploy) che-parent, dashboard, workspace loader, che server in a single reactor -->
+        <profile>
+            <id>server</id>
+            <modules>
+                <module>dependencies</module>
+                <module>../che-docs</module>
+                <module>../che-dashboard</module>
+                <module>../che-workspace-loader</module>
+                <module>../che</module>
+            </modules>
+        </profile>
     </profiles>
 </project>
