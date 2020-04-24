@@ -1674,6 +1674,12 @@
                     </plugin>
                 </plugins>
             </build>
+            <modules>
+                <module>../che-docs</module>
+                <module>../che-dashboard</module>
+                <module>../che-workspace-loader</module>
+                <module>../che</module>
+            </modules>
             <properties>
                 <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
                 <maven.assembly.recompressZippedFiles>true</maven.assembly.recompressZippedFiles>
