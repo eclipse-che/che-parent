@@ -43,9 +43,6 @@
     <prerequisites>
         <maven>${maven.min.version}</maven>
     </prerequisites>
-    <modules>
-        <module>dependencies</module>
-    </modules>
     <scm>
         <connection>scm:git:git@github.com:eclipse/che-parent.git</connection>
         <developerConnection>scm:git:git@github.com:eclipse/che-parent.git</developerConnection>
