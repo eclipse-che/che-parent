@@ -17,11 +17,11 @@
     <parent>
         <artifactId>maven-parent-pom</artifactId>
         <groupId>org.eclipse.che.parent</groupId>
-        <version>7.12.0-SNAPSHOT</version>
+        <version>7.12.2-SNAPSHOT</version>
     </parent>
     <groupId>org.eclipse.che.depmgt</groupId>
     <artifactId>maven-depmgt-pom</artifactId>
-    <version>7.12.0-SNAPSHOT</version>
+    <version>7.12.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che Dependency Management POM</name>
     <description>Provides version of third parties artifacts to use in Codenvy platform projects</description>
