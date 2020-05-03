@@ -77,7 +77,7 @@
         <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
         <animal-sniffer.signature.version>1.0</animal-sniffer.signature.version>
         <archiveClasses>false</archiveClasses>
-        <com.google.errorprone>2.1.1</com.google.errorprone>
+        <com.google.errorprone>2.3.3</com.google.errorprone>
         <currentYear>2018</currentYear>
         <!--  maven-javadoc-plugin -->
         <detectOfflineLinks>false</detectOfflineLinks>
@@ -103,7 +103,8 @@
             <jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
         -->
         <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
-        <jdk.min.version>1.8</jdk.min.version>
+        <java.target.version>1.8</java.target.version>
+        <jdk.min.version>${java.target.version}</jdk.min.version>
         <!-- **************************************** -->
         <!-- Jenkins Settings                         -->
         <!-- **************************************** -->
@@ -126,9 +127,9 @@
         <maven.compiler.optimize>true</maven.compiler.optimize>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.source>${java.target.version}</maven.compiler.source>
         <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.target>${java.target.version}</maven.compiler.target>
         <maven.java.compat.skip>false</maven.java.compat.skip>
         <!-- maven-enforcer-plugin -->
         <maven.min.version>3.3.1</maven.min.version>
@@ -208,9 +209,9 @@
         <version.checkstyle.plugin>2.17</version.checkstyle.plugin>
         <version.clean.plugin>3.0.0</version.clean.plugin>
         <version.clirr.plugin>2.6.1</version.clirr.plugin>
-        <version.compiler.plugin>3.7.0</version.compiler.plugin>
+        <version.compiler.plugin>3.8.1</version.compiler.plugin>
         <version.copy.plugin>0.2.5</version.copy.plugin>
-        <version.dependency.plugin>3.0.1</version.dependency.plugin>
+        <version.dependency.plugin>3.1.2</version.dependency.plugin>
         <version.deploy.plugin>2.8.2</version.deploy.plugin>
         <version.docbkx.plugin>2.0.17</version.docbkx.plugin>
         <version.docck.plugin>1.0</version.docck.plugin>
@@ -218,7 +219,7 @@
         <version.ear.plugin>2.10.1</version.ear.plugin>
         <version.eclipse.plugin>2.9</version.eclipse.plugin>
         <version.ejb.plugin>3.0.0</version.ejb.plugin>
-        <version.enforcer.plugin>3.0.0-M1</version.enforcer.plugin>
+        <version.enforcer.plugin>3.0.0-M2</version.enforcer.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
         <version.fabric8io.docker.plugin>0.22.1</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
@@ -260,7 +261,7 @@
         <version.plexus-utils>3.0.18</version.plexus-utils>
         <version.plexus.component.metadata.plugin>1.7.1</version.plexus.component.metadata.plugin>
         <version.plexus.plugin>1.3.8</version.plexus.plugin>
-        <version.plugin.plugin>3.5</version.plugin.plugin>
+        <version.plugin.plugin>3.6.0</version.plugin.plugin>
         <version.pmd.plugin>3.8</version.pmd.plugin>
         <version.project-info-reports.plugin>2.9</version.project-info-reports.plugin>
         <version.rar.plugin>2.4</version.rar.plugin>
@@ -279,7 +280,7 @@
         <version.surefire.plugin>2.22.1</version.surefire.plugin>
         <version.taglist.plugin>2.4</version.taglist.plugin>
         <version.tomcat7.plugin>2.2</version.tomcat7.plugin>
-        <version.versions.plugin>2.4</version.versions.plugin>
+        <version.versions.plugin>2.7</version.versions.plugin>
         <version.wagon>2.7</version.wagon>
         <version.war.plugin>3.1.0</version.war.plugin>
         <version.wikbook.plugin>0.9.45</version.wikbook.plugin>
@@ -304,9 +305,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${version.compiler.plugin}</version>
-                    <configuration>
-                        <forceJavacCompilerUse>true</forceJavacCompilerUse>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>com.jayway.maven.plugins.android.generation2</groupId>
@@ -527,6 +525,7 @@
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>${version.failsafe.plugin}</version>
                     <configuration>
+                        <argLine>--illegal-access=permit</argLine>
                         <systemPropertyVariables>
                             <!-- To avoid conflicts on CI server - PAR-192 -->
                             <!-- There is an incompatibility with Byteman - used in social -->
@@ -1690,26 +1689,18 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>${version.compiler.plugin}</version>
-                        <dependencies>
-                            <!-- override plexus-compiler-javac-errorprone's dependency on
-                             Error Prone with the latest version -->
-                            <dependency>
-                                <groupId>com.google.errorprone</groupId>
-                                <artifactId>error_prone_core</artifactId>
-                                <version>${com.google.errorprone}</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.codehaus.plexus</groupId>
-                                <artifactId>plexus-compiler-javac-errorprone</artifactId>
-                                <version>2.5</version>
-                            </dependency>
-                        </dependencies>
                         <configuration>
                             <compilerArgs>
-                                <arg>-Xep:DepAnn:WARN</arg>
+                                <!-- XXX: all Error Prone args should come in a single argument -->
+                                <arg>-XDcompilePolicy=simpl -Xplugin:ErrorProne -XepDisableWarningsInGeneratedCode</arg>
                             </compilerArgs>
-                            <compilerId>javac-with-errorprone</compilerId>
-                            <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                            <annotationProcessorPaths>
+                                <path>
+                                    <groupId>com.google.errorprone</groupId>
+                                    <artifactId>error_prone_core</artifactId>
+                                    <version>${com.google.errorprone}</version>
+                                </path>
+                            </annotationProcessorPaths>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -1781,6 +1772,9 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <argLine>--illegal-access=permit</argLine>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
