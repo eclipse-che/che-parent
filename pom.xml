@@ -77,7 +77,7 @@
         <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
         <animal-sniffer.signature.version>1.0</animal-sniffer.signature.version>
         <archiveClasses>false</archiveClasses>
-        <com.google.errorprone>2.3.3</com.google.errorprone>
+        <com.google.errorprone>2.3.4</com.google.errorprone>
         <currentYear>2018</currentYear>
         <!--  maven-javadoc-plugin -->
         <detectOfflineLinks>false</detectOfflineLinks>
@@ -1692,8 +1692,8 @@
                         <configuration>
                             <release>${java.target.version}</release>
                             <compilerArgs>
-                                <!-- XXX: all Error Prone args should come in a single argument -->
-                                <arg>-XDcompilePolicy=simpl -Xplugin:ErrorProne -XepDisableWarningsInGeneratedCode</arg>
+                                <arg>-XDcompilePolicy=simple</arg>
+                                <arg>-Xplugin:ErrorProne</arg>
                             </compilerArgs>
                             <annotationProcessorPaths>
                                 <path>
