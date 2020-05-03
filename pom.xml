@@ -208,9 +208,9 @@
         <version.checkstyle.plugin>2.17</version.checkstyle.plugin>
         <version.clean.plugin>3.0.0</version.clean.plugin>
         <version.clirr.plugin>2.6.1</version.clirr.plugin>
-        <version.compiler.plugin>3.8.0</version.compiler.plugin>
+        <version.compiler.plugin>3.8.1</version.compiler.plugin>
         <version.copy.plugin>0.2.5</version.copy.plugin>
-        <version.dependency.plugin>3.1.1</version.dependency.plugin>
+        <version.dependency.plugin>3.1.2</version.dependency.plugin>
         <version.deploy.plugin>2.8.2</version.deploy.plugin>
         <version.docbkx.plugin>2.0.17</version.docbkx.plugin>
         <version.docck.plugin>1.0</version.docck.plugin>
@@ -279,7 +279,7 @@
         <version.surefire.plugin>2.22.1</version.surefire.plugin>
         <version.taglist.plugin>2.4</version.taglist.plugin>
         <version.tomcat7.plugin>2.2</version.tomcat7.plugin>
-        <version.versions.plugin>2.5</version.versions.plugin>
+        <version.versions.plugin>2.7</version.versions.plugin>
         <version.wagon>2.7</version.wagon>
         <version.war.plugin>3.1.0</version.war.plugin>
         <version.wikbook.plugin>0.9.45</version.wikbook.plugin>
@@ -408,13 +408,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>${version.dependency.plugin}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.shared</groupId>
-                            <artifactId>maven-dependency-analyzer</artifactId>
-                            <version>1.11.1</version>
-                        </dependency>
-                    </dependencies>
                     <configuration>
                         <!-- Perfs improvements - PAR-191 -->
                         <useJvmChmod>true</useJvmChmod>
@@ -1709,7 +1702,7 @@
                                 <path>
                                     <groupId>com.google.errorprone</groupId>
                                     <artifactId>error_prone_core</artifactId>
-                                    <version>2.3.3</version>
+                                    <version>${com.google.errorprone}</version>
                                 </path>
                             </annotationProcessorPaths>
                         </configuration>
