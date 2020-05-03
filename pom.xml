@@ -103,7 +103,7 @@
             <jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
         -->
         <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
-        <java.target.version>1.8</java.target.version>
+        <java.target.version>11</java.target.version>
         <jdk.min.version>${java.target.version}</jdk.min.version>
         <!-- **************************************** -->
         <!-- Jenkins Settings                         -->
@@ -1690,6 +1690,7 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>${version.compiler.plugin}</version>
                         <configuration>
+                            <release>${java.target.version}</release>
                             <compilerArgs>
                                 <!-- XXX: all Error Prone args should come in a single argument -->
                                 <arg>-XDcompilePolicy=simpl -Xplugin:ErrorProne -XepDisableWarningsInGeneratedCode</arg>

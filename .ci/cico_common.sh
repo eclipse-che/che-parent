@@ -57,7 +57,7 @@ load_mvn_settings_gpg_key() {
 install_deps(){
     set +x
     yum -q -y update
-    yum -q -y install centos-release-scl-rh java-1.8.0-openjdk-devel git 
+    yum -q -y install centos-release-scl-rh java-11-openjdk-devel git
     yum -q -y install rh-maven33
 }
 
