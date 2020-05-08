@@ -219,7 +219,7 @@
         <version.ear.plugin>2.10.1</version.ear.plugin>
         <version.eclipse.plugin>2.9</version.eclipse.plugin>
         <version.ejb.plugin>3.0.0</version.ejb.plugin>
-        <version.enforcer.plugin>3.0.0-M2</version.enforcer.plugin>
+        <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
         <version.fabric8io.docker.plugin>0.22.1</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
