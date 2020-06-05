@@ -1553,6 +1553,10 @@
                                             <banSnapshots>true</banSnapshots>
                                             <phases>deploy,site</phases>
                                         </requirePluginVersions>
+                                        <requireReleaseVersion>
+                                            <failWhenParentIsSnapshot>true</failWhenParentIsSnapshot>
+                                            <message>No Snapshots Allowed!</message>
+                                        </requireReleaseVersion>
                                     </rules>
                                 </configuration>
                             </execution>
