@@ -46,11 +46,11 @@ install_deps(){
 
 build_and_deploy_artifacts() {
     set -x
-    scl enable rh-maven33 'mvn clean install -U'
+    scl enable rh-maven35 'mvn clean install -U'
     if [ $? -eq 0 ]; then
         echo 'Build Success!'
         echo 'Going to deploy artifacts'
-        scl enable rh-maven33 "mvn clean deploy  -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE"
+        scl enable rh-maven35 "mvn clean deploy  -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE"
     else
         echo 'Build Failed!'
         exit 1
