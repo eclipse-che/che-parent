@@ -39,18 +39,21 @@ load_mvn_settings_gpg_key() {
 
 install_deps(){
     set +x
-    yum -y update
-    yum -y install centos-release-scl-rh java-11-openjdk-devel git
-    yum -y install rh-maven33
+    yum -y update &&  yum -y install java-11-openjdk-devel git
+    mkdir -p /opt/apache-maven && curl -sSL https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz | tar -xz --strip=1 -C /opt/apache-maven
+    export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+    export PATH="/usr/lib/jvm/java-11-openjdk:/opt/apache-maven/bin:/usr/bin:${PATH:-/bin:/usr/bin}"
+    export JAVACONFDIRS="/etc/java${JAVACONFDIRS:+:}${JAVACONFDIRS:-}"
+    export M2_HOME="/opt/apache-maven"
 }
 
 build_and_deploy_artifacts() {
     set -x
-    scl enable rh-maven35 'mvn clean install -U'
+    mvn clean install -U
     if [ $? -eq 0 ]; then
         echo 'Build Success!'
         echo 'Going to deploy artifacts'
-        scl enable rh-maven35 "mvn clean deploy  -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE"
+        mvn clean deploy -DcreateChecksum=true -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE
     else
         echo 'Build Failed!'
         exit 1
