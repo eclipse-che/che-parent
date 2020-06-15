@@ -40,7 +40,7 @@ load_mvn_settings_gpg_key() {
 install_deps(){
     set +x
     yum -y update &&  yum -y install java-11-openjdk-devel git
-    mkdir /opt/apache-maven && curl -sSL https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz | tar -xz --strip=1 -C /opt/apache-maven
+    mkdir -p /opt/apache-maven && curl -sSL https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz | tar -xz --strip=1 -C /opt/apache-maven
     export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
     export PATH="/usr/lib/jvm/java-11-openjdk:/opt/apache-maven/bin:/usr/bin:${PATH:-/bin:/usr/bin}"
     export JAVACONFDIRS="/etc/java${JAVACONFDIRS:+:}${JAVACONFDIRS:-}"
@@ -53,7 +53,7 @@ build_and_deploy_artifacts() {
     if [ $? -eq 0 ]; then
         echo 'Build Success!'
         echo 'Going to deploy artifacts'
-        mvn clean deploy  -DcreateChecksum=true  -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE
+        mvn clean deploy -DcreateChecksum=true -Dgpg.passphrase=$CHE_OSS_SONATYPE_PASSPHRASE
     else
         echo 'Build Failed!'
         exit 1
