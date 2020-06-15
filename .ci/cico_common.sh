@@ -45,7 +45,7 @@ install_deps(){
 
 build_and_deploy_artifacts() {
     set -x
-     ./mvnw clean install -U
+    ./mvnw clean install -U
     if [ $? -eq 0 ]; then
         echo 'Build Success!'
         echo 'Going to deploy artifacts'
