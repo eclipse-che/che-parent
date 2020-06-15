@@ -41,7 +41,7 @@ install_deps(){
     set +x
     yum -y update
     yum -y install centos-release-scl-rh java-11-openjdk-devel git
-    yum -y install rh-maven35
+    yum -y install rh-maven33
 }
 
 build_and_deploy_artifacts() {
