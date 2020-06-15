@@ -103,7 +103,7 @@
             <jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
         -->
         <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
-        <java.target.version>1.8</java.target.version>
+        <java.target.version>11</java.target.version>
         <jdk.min.version>${java.target.version}</jdk.min.version>
         <!-- **************************************** -->
         <!-- Jenkins Settings                         -->
@@ -219,7 +219,7 @@
         <version.ear.plugin>2.10.1</version.ear.plugin>
         <version.eclipse.plugin>2.9</version.eclipse.plugin>
         <version.ejb.plugin>3.0.0</version.ejb.plugin>
-        <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
+        <version.enforcer.plugin>3.0.0-M2</version.enforcer.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
         <version.fabric8io.docker.plugin>0.22.1</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
@@ -525,6 +525,7 @@
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>${version.failsafe.plugin}</version>
                     <configuration>
+                        <argLine>--illegal-access=permit</argLine>
                         <systemPropertyVariables>
                             <!-- To avoid conflicts on CI server - PAR-192 -->
                             <!-- There is an incompatibility with Byteman - used in social -->
@@ -1692,23 +1693,19 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>${version.compiler.plugin}</version>
-                        <dependencies>
-                            <!-- override plexus-compiler-javac-errorprone's dependency on
-                             Error Prone with the latest version -->
-                            <dependency>
-                                <groupId>com.google.errorprone</groupId>
-                                <artifactId>error_prone_core</artifactId>
-                                <version>${com.google.errorprone}</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.codehaus.plexus</groupId>
-                                <artifactId>plexus-compiler-javac-errorprone</artifactId>
-                                <version>2.5</version>
-                            </dependency>
-                        </dependencies>
                         <configuration>
-                            <compilerId>javac-with-errorprone</compilerId>
-                            <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                            <release>${java.target.version}</release>
+                            <compilerArgs>
+                                <arg>-XDcompilePolicy=simple</arg>
+                                <arg>-Xplugin:ErrorProne</arg>
+                            </compilerArgs>
+                            <annotationProcessorPaths>
+                                <path>
+                                    <groupId>com.google.errorprone</groupId>
+                                    <artifactId>error_prone_core</artifactId>
+                                    <version>${com.google.errorprone}</version>
+                                </path>
+                            </annotationProcessorPaths>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -1780,6 +1777,9 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <argLine>--illegal-access=permit</argLine>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
