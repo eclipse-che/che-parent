@@ -132,7 +132,7 @@
         <maven.compiler.target>${java.target.version}</maven.compiler.target>
         <maven.java.compat.skip>false</maven.java.compat.skip>
         <!-- maven-enforcer-plugin -->
-        <maven.min.version>3.6.3</maven.min.version>
+        <maven.min.version>3.6.1</maven.min.version>
         <!-- **************************************** -->
         <!-- Sonar Settings                           -->
         <!-- **************************************** -->
