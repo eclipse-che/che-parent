@@ -72,10 +72,6 @@
         </site>
     </distributionManagement>
     <properties>
-        <animal-sniffer.signature.artifactId>java17</animal-sniffer.signature.artifactId>
-        <!-- To configure animal-sniffer to check API compat -->
-        <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
-        <animal-sniffer.signature.version>1.0</animal-sniffer.signature.version>
         <archiveClasses>false</archiveClasses>
         <com.google.errorprone>2.3.4</com.google.errorprone>
         <currentYear>2018</currentYear>
@@ -194,11 +190,10 @@
         <!-- *************** -->
         <!-- Others versions -->
         <!-- *************** -->
-        <version.animal-sniffer.enforcer-rule>1.18</version.animal-sniffer.enforcer-rule>
         <version.antrun.plugin>1.8</version.antrun.plugin>
-        <!-- PAR-155 : Produce project sources package distribution -->
         <version.apache-source-release-assembly-descriptor>1.0.4</version.apache-source-release-assembly-descriptor>
         <version.archetype.plugin>3.0.1</version.archetype.plugin>
+        <!-- PAR-155 : Produce project sources package distribution -->
         <version.aspectj.plugin>1.7</version.aspectj.plugin>
         <version.assembly.plugin>3.1.0</version.assembly.plugin>
         <version.buildhelper.plugin>1.9.1</version.buildhelper.plugin>
@@ -219,7 +214,7 @@
         <version.ear.plugin>2.10.1</version.ear.plugin>
         <version.eclipse.plugin>2.9</version.eclipse.plugin>
         <version.ejb.plugin>3.0.0</version.ejb.plugin>
-        <version.enforcer.plugin>3.0.0-M2</version.enforcer.plugin>
+        <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
         <version.fabric8io.docker.plugin>0.22.1</version.fabric8io.docker.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
@@ -502,11 +497,6 @@
                             <groupId>com.ceilfors.maven.plugin</groupId>
                             <artifactId>enforcer-rules</artifactId>
                             <version>1.2.0</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>animal-sniffer-enforcer-rule</artifactId>
-                            <version>${version.animal-sniffer.enforcer-rule}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.mojo</groupId>
@@ -1561,24 +1551,6 @@
                                     </rules>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <id>check-java-compat</id>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                                <configuration>
-                                    <skip>${maven.java.compat.skip}</skip>
-                                    <rules>
-                                        <checkSignatureRule implementation="org.codehaus.mojo.animal_sniffer.enforcer.CheckSignatureRule">
-                                            <signature>
-                                                <groupId>${animal-sniffer.signature.groupId}</groupId>
-                                                <artifactId>${animal-sniffer.signature.artifactId}</artifactId>
-                                                <version>${animal-sniffer.signature.version}</version>
-                                            </signature>
-                                        </checkSignatureRule>
-                                    </rules>
-                                </configuration>
-                            </execution>
                         </executions>
                     </plugin>
                     <!-- 
@@ -1598,6 +1570,9 @@
                                 </configuration>
                             </execution>
                         </executions>
+                        <configuration>
+                            <source>8</source>
+                        </configuration>
                     </plugin>
                     <!--
             Checks backward compatibility is maintained
