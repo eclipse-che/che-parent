@@ -19,7 +19,7 @@ bump_version() {
   mvn versions:set -DnewVersion=${NEXTVERSION}
   mvn versions:commit
 
-  COMMIT_MSG="[release] Bump to ${NEXTVERSION} in ${BUMP_BRANCH}"
+  COMMIT_MSG="chore: release: bump to ${NEXTVERSION} in ${BUMP_BRANCH}"
   git commit -a -s -m "${COMMIT_MSG}"
 
   PR_BRANCH=pr-master-to-${NEXTVERSION}
